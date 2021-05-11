@@ -1,0 +1,53 @@
+﻿<Window x:Class="HRinformationSystem.HRiSUsers"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        Title="HRiS Users"  Height="400" Width="455" Cursor="Hand" Background="#FF1585A7" Loaded="Window_Loaded" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="Images/user.png">
+    <Grid Margin="0,1,0,0" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!--<telerik:RadButton  />-->
+
+        
+            <telerik:RadGridView  Name="gridUsers" 
+                             GroupRenderMode="Flat"
+							 ColumnWidth="*"
+                             Margin="10"
+							 AutoGenerateColumns="False"
+							 HorizontalAlignment="Center"
+							 CanUserFreezeColumns="False"  
+                             ShowGroupPanel="False"
+                             IsFilteringAllowed="False"
+							 RowIndicatorVisibility="Collapsed"
+                             NewRowPosition="Top" AddingNewDataItem="gridUsers_AddingNewDataItem"
+                             RowEditEnded="gridUsers_RowEditEnded"
+                             PreviewKeyDown="gridUsers_PreviewKeyDown">
+            <telerik:StyleManager.Theme>
+                <telerik:FluentTheme/>
+            </telerik:StyleManager.Theme>
+            <telerik:RadGridView.Columns>
+                    <telerik:GridViewDataColumn x:Name="EmpID" Header="EmpID" 
+										DataMemberBinding="{Binding userid}"  
+                                        Width="90*"/>
+                    <telerik:GridViewDataColumn x:Name="username" Header="Username"
+										DataMemberBinding="{Binding username}"  
+                                        Width="90*"/>
+                    <telerik:GridViewDataColumn x:Name="password" Header="Password"
+										DataMemberBinding="{Binding userpass}"  
+                                        Width="90*"/>
+                <telerik:GridViewComboBoxColumn Name="usertype" Header="Usertype" 
+										DataMemberBinding="{Binding usertype}"
+                                        SelectedValueMemberPath="usertype" 
+                                        DisplayMemberPath="usertype"
+                                        Width="70*"/>
+                </telerik:RadGridView.Columns>
+
+            </telerik:RadGridView>
+
+     
+
+
+    </Grid>
+</Window>

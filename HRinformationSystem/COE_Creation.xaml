@@ -1,0 +1,299 @@
+﻿<Window x:Class="HRinformationSystem.COE_Creation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Viewer="clr-namespace:SAPBusinessObjects.WPF.Viewer;assembly=SAPBusinessObjects.WPF.Viewer"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        xmlns:local="clr-namespace:HRinformationSystem" Loaded="Window_Loaded"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"  Cursor="Hand" ResizeMode="NoResize"
+        Title="Certificate Of Employment" Height="650" Width="1000">
+
+    <Window.Resources>
+        <Style x:Key="DataGridDesign" TargetType="DataGrid">
+            <Setter Property="ColumnHeaderStyle" Value="{DynamicResource chs1}"></Setter>
+        </Style>
+        <Style x:Key="chs1" TargetType="DataGridColumnHeader">
+            <Setter Property="Height" Value="50"></Setter>
+            <Setter Property="Padding" Value="5"></Setter>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="FontWeight" Value="DemiBold"/>
+            <Setter Property="VerticalAlignment"  Value="Center"></Setter>
+        </Style>
+        <Style x:Key="DataGridContentCellCentering" TargetType="{x:Type DataGridCell}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DataGridCell}">
+                        <Grid Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Window.Resources>
+
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"></ColumnDefinition>
+
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <GroupBox Grid.Row="0" Margin="2,0,2,0">
+                <GroupBox.Header>
+                    <Label FontSize="16">Employee Selection</Label>
+                </GroupBox.Header>
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition Width="36"></ColumnDefinition>
+                            <ColumnDefinition Width="36"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <telerik:RadWatermarkTextBox MinHeight="30"  Grid.Column="0" Margin="2"
+                                         x:Name="tbSearchName" FontSize="12" FontWeight="Normal"
+                                         VerticalAlignment="Center" KeyDown="tbSearchName_KeyDown"
+                                         WatermarkContent="Search Employee" TextChanged="tbSearchName_TextChanged"/>
+
+                        <Button Grid.Column="1" Margin="3,4,3,4" x:Name="btnSearch" Background="White" Click="btnSearch_Click">
+                            <StackPanel>
+                                <Image Source="Images/find.png" />
+                            </StackPanel>
+                        </Button>
+                        <Button Grid.Column="2" Margin="3,4,3,4" x:Name="btnReset" Background="White" Click="btnReset_Click">
+                            <StackPanel>
+                                <Image Source="Images/refreshnew.png" Stretch="Fill" />
+                            </StackPanel>
+                        </Button>
+                    </Grid>
+
+                    <CheckBox x:Name="chkSelectAll" Content="Select All Employees" Margin="8,0,5,0" VerticalAlignment="Center" HorizontalAlignment="left"  
+                              Grid.Row="1" Checked="chkStateChange_Checked" Unchecked="chkStateChange_Checked" />
+
+                    <Grid Grid.Row="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition Height="30"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <DataGrid Name="gridEmployees" AutoGenerateColumns="False" PreviewMouseWheel="UIElement_OnPreviewMouseWheel" HeadersVisibility="None" 
+                                ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected"  Style="{DynamicResource DataGridDesign}" Grid.Row="0"
+                                VerticalAlignment="Stretch" AlternatingRowBackground="WhiteSmoke" ScrollViewer.CanContentScroll="False" ScrollViewer.VerticalScrollBarVisibility="Auto" 
+                                ScrollViewer.HorizontalScrollBarVisibility="Auto" HorizontalGridLinesBrush="White" VerticalGridLinesBrush="White"
+                                CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeColumns="False"  CanUserReorderColumns="False" >
+                            <DataGrid.ColumnHeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="FontSize" Value="10"/>
+                                </Style>
+                            </DataGrid.ColumnHeaderStyle>
+                            <DataGrid.CellStyle>
+
+                                <Style TargetType="{x:Type DataGridCell}">
+                                    <Style.Triggers>
+                                        <Trigger Property="DataGridCell.IsSelected" Value="true">
+                                            <Setter Property="BorderBrush">
+                                                <Setter.Value>
+                                                    <SolidColorBrush Color="Transparent"/>
+                                                </Setter.Value>
+                                            </Setter>
+                                            <Setter Property="Foreground"
+                            Value="{DynamicResource
+                                   {x:Static SystemColors.ControlTextBrushKey}}"/>
+                                            <Setter Property="Background">
+                                                <Setter.Value>
+                                                    <SolidColorBrush Color="Transparent"/>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+                                    </Style.Triggers>
+
+                                    <Setter Property="VerticalAlignment" Value="Center"></Setter>
+                                </Style>
+                            </DataGrid.CellStyle>
+                            <DataGrid.Columns>
+
+                                <DataGridCheckBoxColumn Header="S" Width="30" x:Name="chkbxSelect" Binding="{Binding IsChecked, ElementName=chkSelectAll, Mode=OneWay}">
+                                    <DataGridCheckBoxColumn.ElementStyle>
+                                        <Style TargetType="CheckBox">
+                                            <Setter Property="Cursor"  Value="Hand"/>
+                                            <Setter Property="HorizontalAlignment"  Value="Center"/>
+                                        </Style>
+                                    </DataGridCheckBoxColumn.ElementStyle>
+                                    <DataGridCheckBoxColumn.CellStyle>
+                                       
+                                        <Style TargetType="{x:Type DataGridCell}">
+
+                                            <EventSetter Event="ToggleButton.Checked" Handler="OnChecked"/>
+
+                                            <EventSetter Event="ToggleButton.Unchecked" Handler="OnUnChecked"/>
+
+                                            <Style.Triggers>
+
+                                                <Trigger Property="IsSelected" Value="true">
+
+                                                    <Setter Property="Foreground" Value="white"/>
+
+                                                    <Setter Property="Background" Value="White"/>
+
+                                                    <Setter Property="BorderBrush" Value="white"/>
+
+                                                    <Setter Property="BorderThickness" Value="0"/>
+
+                                                </Trigger>
+
+                                            </Style.Triggers>
+
+                                        </Style>
+                                    </DataGridCheckBoxColumn.CellStyle>
+
+                                </DataGridCheckBoxColumn>
+
+                                <DataGridTextColumn x:Name="IdColumn" Binding="{Binding Path=EmpID}" Header="Employee ID" Width="200" Visibility="Hidden" IsReadOnly="True" >
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="HorizontalAlignment" Value="Left" />
+                                            <Setter Property="VerticalAlignment" Value="Center"/>
+                                            <Setter Property="FontSize" Value="12"/>
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+
+                                <DataGridTextColumn x:Name="NameColumn" Binding="{Binding Path=EmployeeName}" Header="" 
+                                        Width="*" IsReadOnly="True" Visibility="Visible" >
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="HorizontalAlignment" Value="Left" />
+                                            <Setter Property="FontSize" Value="12"/>
+                                            <Setter Property="VerticalAlignment" Value="Center"/>
+                                            <Setter Property="Margin" Value="10,0,0,0"></Setter>
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+
+                            </DataGrid.Columns>
+                        </DataGrid>
+
+                        <Label Name="lblCheckedCounnt" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontStyle="Italic" FontSize="12"  FontWeight="Light" Foreground="Black">Ian Lemuel Malabanan</Label>
+
+                    </Grid>
+
+                </Grid>
+
+            </GroupBox>
+        </Grid>
+
+        <Grid  Grid.Column="1">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <GroupBox Grid.Row="0" Margin="2,0,2,0">
+                <GroupBox.Header>
+                    <Label FontSize="16">Template Selection</Label>
+                </GroupBox.Header>
+
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition ></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <!--SelectedValuePath="GroupTypeCode" DisplayMemberPath="GroupTypeName"-->
+
+                    <telerik:RadComboBox x:Name="cboTemplate" VerticalAlignment="Stretch" Margin="2,5,2,5" SelectionChanged="CboTemplate_SelectionChanged"
+                                             HorizontalAlignment="Stretch" IsEditable="False"  Grid.Column="0" Grid.Row="0"
+                                             SelectedValuePath="TemplateName" DisplayMemberPath="TemplateName"        
+                                             EmptyText="Select Template" telerik:StyleManager.Theme="Fluent"   >
+
+                    </telerik:RadComboBox>
+
+                    <telerik:RadWatermarkTextBox MinHeight="30"  Grid.Column="1" Grid.Row="0" Margin="2"
+                                         x:Name="tbApprover" FontSize="12" FontWeight="Normal"
+                                         VerticalAlignment="Center" 
+                                         WatermarkContent="Approver Name" />
+
+                    <telerik:RadWatermarkTextBox MinHeight="30"  Grid.Column="2" Grid.Row="0" Margin="2"
+                                         x:Name="tbDesignation" FontSize="12" FontWeight="Normal"
+                                         VerticalAlignment="Center" 
+                                         WatermarkContent="Designation" />
+
+                    <telerik:RadWatermarkTextBox MinHeight="30"  Grid.Column="0" Grid.Row="1" Margin="2"
+                                         x:Name="tbCompanyName" FontSize="12" FontWeight="Normal"
+                                         VerticalAlignment="Center"  Grid.ColumnSpan="3" 
+                                         WatermarkContent="Company Name" />
+
+                    <telerik:RadWatermarkTextBox MinHeight="30"  Grid.Column="0" Grid.Row="2" Margin="2"
+                                         x:Name="tbCompanyAddress" FontSize="12" FontWeight="Normal"
+                                         VerticalAlignment="Center" Grid.ColumnSpan="3"
+                                         WatermarkContent="Company Address" />
+                </Grid>
+
+
+            </GroupBox>
+
+            <GroupBox Grid.Row="1" Margin="2,0,2,0">
+                <GroupBox.Header>
+                    <Label FontSize="16">Body Format</Label>
+                </GroupBox.Header>
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="130"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition Height="60"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock x:Name="lblNote" Grid.Row="0" Margin="2" FontSize="15" VerticalAlignment="Center">
+                        <TextBlock.Background>
+                            <SolidColorBrush Color="Azure" Opacity="0.5" />
+                        </TextBlock.Background>
+                    </TextBlock>
+
+                    <TextBox x:Name="tbContent" Grid.Row="1" HorizontalAlignment="Stretch" FontSize="15" AcceptsReturn="True" TextWrapping="Wrap" 
+                        VerticalScrollBarVisibility="Visible"  VerticalAlignment="Stretch" />
+
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition Width="150"></ColumnDefinition>
+                            <ColumnDefinition Width="150"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <telerik:RadButton telerik:StyleManager.Theme="Windows8Touch"  x:Name="btnSave"
+                           Cursor="Hand" Margin="5" FontSize="12" Grid.Column="1" Click="BtnSave_Click"
+                           HorizontalAlignment="Stretch"  Content="Save Template" />
+
+                        <telerik:RadButton telerik:StyleManager.Theme="Windows8Touch"  x:Name="btnPrintPreview"
+                           Cursor="Hand" Margin="5" FontSize="12" Grid.Column="2" Click="BtnPrintPreview_Click"
+                           HorizontalAlignment="Stretch"  Content="Print Preview" />
+                    </Grid>
+
+                </Grid>
+
+            </GroupBox>
+
+        </Grid>
+
+    </Grid>
+</Window>

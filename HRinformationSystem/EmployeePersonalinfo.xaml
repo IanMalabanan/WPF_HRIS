@@ -1,0 +1,346 @@
+﻿<UserControl x:Class="HRinformationSystem.EmployeePersonalinfo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:wizard="clr-namespace:Telerik.Windows.Controls.Wizard;assembly=Telerik.Windows.Controls.Navigation"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
+             xmlns:converters="clr-namespace;HRinformationSystem.Converters"
+             mc:Ignorable="d" d:DesignWidth="820" Height="600" Loaded="UserControl_Loaded">
+    <!--Height="432"-->
+
+    <Grid Margin="2"  >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="399*"/>
+            <RowDefinition Height="29"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="65*"/>
+            <ColumnDefinition Width="207*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid HorizontalAlignment="Stretch" Margin="1" VerticalAlignment="Stretch" Name="EmpData" IsEnabled="False">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="125*"/>
+                <RowDefinition Height="130*"/>
+                <RowDefinition Height="130*"/>
+            </Grid.RowDefinitions>
+
+            <Button Name="Load"  Background="{x:Null}" Click="Load_Click" Grid.Row="0" Margin="5,0" >
+                <Image  Margin="0,0,0,0" Name="EmpPicture" Source="Images/no-image.png"  Stretch="Fill"/>
+            </Button>
+
+            <GroupBox HorizontalAlignment="Stretch"  Margin="2,0" VerticalAlignment="Stretch"  Header="" Cursor="Hand"  Foreground="#FF3664B6" Grid.Row="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25*"/>
+                        <RowDefinition Height="25*"/>
+                        <RowDefinition Height="25*"/>
+                        <RowDefinition Height="25*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="17*"/>
+                        <ColumnDefinition Width="38*"/>
+                    </Grid.ColumnDefinitions>
+
+
+                    <TextBlock Foreground="#FF353536" TextWrapping="Wrap" Text="Batch No" VerticalAlignment="Center"  Grid.Row="0"/>
+                    <TextBlock Foreground="#FF353536" TextWrapping="Wrap" Text="Prox ID" VerticalAlignment="Center"  Grid.Row="1"/>
+                    <TextBlock Foreground="#FF353536" TextWrapping="Wrap" Text="Date Hire" VerticalAlignment="Center"  Grid.Row="2"/>
+                    <TextBlock Foreground="#FF353536" TextWrapping="Wrap" Text="Date End" VerticalAlignment="Center"  Grid.Row="3"/>
+
+
+                    <TextBox  telerik:StyleManager.Theme="VisualStudio2013" Visibility="Collapsed" Name="EmpID" MaxLength="12" VerticalAlignment="Center" Text="{Binding EmpID,Mode=OneWay}"  IsReadOnly="True"  HorizontalAlignment="Stretch"  Grid.Column="1" />
+                    <telerik:RadWatermarkTextBox WatermarkContent="Batch No" telerik:StyleManager.Theme="VisualStudio2013"  Name="BatchNo" Text="{Binding BatchNo,Mode=OneWay}" VerticalAlignment="Center"  HorizontalAlignment="Stretch"  Grid.Column="1"  />
+                    <telerik:RadWatermarkTextBox WatermarkContent="Proximity ID" telerik:StyleManager.Theme="VisualStudio2013" Name="ProximityCardID" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Stretch"  Grid.Column="1"  />
+                    <telerik:RadDatePicker Name="HireDate" Grid.Row="2"  HorizontalAlignment="Stretch"  VerticalAlignment="Center"   DateTimeWatermarkContent="Select Hire Date"  Grid.Column="1" Background="White">
+                        <telerik:StyleManager.Theme>
+                            <telerik:VisualStudio2013Theme/>
+                        </telerik:StyleManager.Theme>
+                    </telerik:RadDatePicker>
+                    <telerik:RadDatePicker Name="EndDate" Grid.Row="3"  HorizontalAlignment="Stretch"  VerticalAlignment="Center"   DateTimeWatermarkContent="Select End Date"  Grid.Column="1" Background="White">
+                        <telerik:StyleManager.Theme>
+                            <telerik:VisualStudio2013Theme/>
+                        </telerik:StyleManager.Theme>
+                    </telerik:RadDatePicker>
+
+                </Grid>
+            </GroupBox>
+
+            <GroupBox Grid.Row="2"  Margin="2,0" Header="Endorsement" Cursor="Hand"   Foreground="#FF3664B6">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3.*"/>
+                        <ColumnDefinition Width="7*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25*" />
+                        <RowDefinition Height="25*" />
+                        <RowDefinition Height="25*" />
+                        <RowDefinition Height="25*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Foreground="#FF353536" TextWrapping="Wrap" Text="Dept" VerticalAlignment="Center"  />
+                    <TextBlock Foreground="#FF353536" TextWrapping="Wrap" Text="Section" VerticalAlignment="Center"  Grid.Row="1"/>
+                    <TextBlock Foreground="#FF353536" TextWrapping="Wrap" Text="Position" VerticalAlignment="Center"  Grid.Row="2"/>
+                    <TextBlock Foreground="#FF353536" TextWrapping="Wrap" Text="Status" VerticalAlignment="Center"  Grid.Row="3" />
+
+                    <telerik:RadComboBox  Grid.Column="1" telerik:StyleManager.Theme="VisualStudio2013" Name="Department" SelectedValuePath="DeptCode" DisplayMemberPath="DeptName"  Grid.Row="0" VerticalAlignment="Center"  HorizontalAlignment="Stretch"  SelectionChanged="Department_SelectionChanged" MouseDown="Department_MouseDown" />
+                    <telerik:RadComboBox  Grid.Column="1" telerik:StyleManager.Theme="VisualStudio2013" Name="Section"  SelectedValuePath="SectCode" DisplayMemberPath="SectName" Grid.Row="1" VerticalAlignment="Center"   HorizontalAlignment="Stretch"/>
+                    <telerik:RadComboBox  Grid.Column="1" telerik:StyleManager.Theme="VisualStudio2013" Name="Position" SelectedValuePath="Code" DisplayMemberPath="Description" Grid.Row="2" VerticalAlignment="Center"  HorizontalAlignment="Stretch" />
+                    <telerik:RadComboBox  Grid.Column="1" telerik:StyleManager.Theme="VisualStudio2013" Name="EmploymentStatus" SelectedValuePath="Code" DisplayMemberPath="Description" Grid.Row="3" VerticalAlignment="Center"   HorizontalAlignment="Stretch" />
+
+
+                </Grid>
+            </GroupBox>
+
+
+
+
+        </Grid>
+
+        <Grid HorizontalAlignment="Stretch"  Margin="1" VerticalAlignment="Stretch"  Grid.Column="1"  Name="EmpData2" IsEnabled="False">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30*"/>
+                <RowDefinition Height="53*"/>
+                <RowDefinition Height="53*"/>
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="25*"/>
+                <RowDefinition Height="130*"/>
+            </Grid.RowDefinitions>
+
+            <GroupBox  Header="Name" Cursor="Hand"  Foreground="#FF3664B6" Margin="2,0">
+                <Grid  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="252*" />
+                        <ColumnDefinition Width="252*"/>
+                        <ColumnDefinition Width="244*"/>
+                        <ColumnDefinition Width="9*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <telerik:RadWatermarkTextBox  telerik:StyleManager.Theme="VisualStudio2013" Name="LastName"   Grid.Column="0" TextWrapping="Wrap"   WatermarkContent="Last Name" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="1,0" />
+                    <telerik:RadWatermarkTextBox  telerik:StyleManager.Theme="VisualStudio2013" Name="FirstName" Grid.Column="1" TextWrapping="Wrap"   WatermarkContent="First Name" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="1,0"/>
+                    <telerik:RadWatermarkTextBox  telerik:StyleManager.Theme="VisualStudio2013" Name="MiddleName"  Grid.Column="2" TextWrapping="Wrap"   WatermarkContent="Middle Name" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="1,0"/>
+
+                </Grid>
+            </GroupBox>
+
+            <GroupBox  Header="Present Address" Cursor="Hand"  Grid.Row="1" Foreground="#FF3664B6" Margin="2,0">
+                <Grid  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="249*" />
+                        <ColumnDefinition Width="239*" />
+                        <ColumnDefinition Width="268*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="28" />
+                        <RowDefinition Height="28"/>
+                    </Grid.RowDefinitions>
+                    <telerik:RadComboBox Opacity="0.8" telerik:StyleManager.Theme="VisualStudio2013" Name="CountryName" SelectedValuePath="CountryID" DisplayMemberPath="CountryName"  VerticalAlignment="Center" Margin="1,0"   HorizontalAlignment="Stretch" SelectionChanged="CountryName_SelectionChanged" />
+                    <telerik:RadComboBox Opacity="0.8" telerik:StyleManager.Theme="VisualStudio2013" Name="ProvName"  SelectedValuePath="ProvID" DisplayMemberPath="ProvName"  Grid.Column="1"  VerticalAlignment="Center" Margin="1,0"   HorizontalAlignment="Stretch" SelectionChanged="ProvName_SelectionChanged" />
+                    <telerik:RadComboBox Opacity="0.8" telerik:StyleManager.Theme="VisualStudio2013" Name="CityName" SelectedValuePath="CityID" DisplayMemberPath="CityName" Grid.Column="2" VerticalAlignment="Center" Margin="1,0"   HorizontalAlignment="Stretch" />
+                    <telerik:RadWatermarkTextBox WatermarkContent="Street"  telerik:StyleManager.Theme="VisualStudio2013"  Name="Street" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="1.0" Grid.ColumnSpan="3" />
+
+
+
+
+                </Grid>
+
+            </GroupBox>
+
+            <GroupBox  Header="Permanent Address" Grid.Row="2" Cursor="Hand"  Foreground="#FF3664B6" Margin="2,0">
+                <Grid  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="249*" />
+                        <ColumnDefinition Width="239*" />
+                        <ColumnDefinition Width="268*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="28" />
+                        <RowDefinition Height="28"/>
+                    </Grid.RowDefinitions>
+                    <telerik:RadComboBox Opacity="0.8" SelectionChanged="PermanentCountryName_SelectionChanged" telerik:StyleManager.Theme="VisualStudio2013" Name="PermanentCountryName" SelectedValuePath="CountryID" DisplayMemberPath="CountryName"  Grid.Column="0"  VerticalAlignment="Center" Margin="1,0" HorizontalAlignment="Stretch" />
+                    <telerik:RadComboBox Opacity="0.8" SelectionChanged="PermanentProvName_SelectionChanged" telerik:StyleManager.Theme="VisualStudio2013" Name="PermanentProvName"  SelectedValuePath="ProvID" DisplayMemberPath="ProvName" Grid.Column="1"  VerticalAlignment="Center" Margin="1,0"   HorizontalAlignment="Stretch"  />
+                    <telerik:RadComboBox Opacity="0.8" telerik:StyleManager.Theme="VisualStudio2013" Name="PermanentCityName"  SelectedValuePath="CityID" DisplayMemberPath="CityName" Grid.Column="2"  VerticalAlignment="Center" Margin="1,0"   HorizontalAlignment="Stretch"  />
+
+                    <telerik:RadWatermarkTextBox WatermarkContent="Street" telerik:StyleManager.Theme="VisualStudio2013" Name="PermanentStreet" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="1,0" Grid.ColumnSpan="5" />
+
+
+
+                </Grid>
+
+            </GroupBox>
+
+            <GroupBox HorizontalAlignment="Stretch" Grid.Row="3" VerticalAlignment="Stretch" Header="Contact" Foreground="#FF3664B6"  Margin="2,0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="249*" />
+                        <ColumnDefinition Width="239*" />
+                        <ColumnDefinition Width="268*"/>
+                    </Grid.ColumnDefinitions>
+                    <telerik:RadWatermarkTextBox  WatermarkContent="Mobile " telerik:StyleManager.Theme="VisualStudio2013" Grid.Row="0" Name="Mobile" HorizontalAlignment="Stretch" MaxLength="13" VerticalAlignment="Center" Margin="1,0" />
+                    <telerik:RadWatermarkTextBox  WatermarkContent="Landline " telerik:StyleManager.Theme="VisualStudio2013" Name="Phone" Grid.Column="1"  HorizontalAlignment="Stretch" MaxLength="10" VerticalAlignment="Center" Margin="1,0" />
+                    <telerik:RadWatermarkTextBox WatermarkContent="Email " telerik:StyleManager.Theme="VisualStudio2013" Name="EmailAddress" Grid.Column="2" HorizontalAlignment="Stretch"  VerticalAlignment="Center" Margin="1,0" />
+
+
+
+                </Grid>
+            </GroupBox>
+
+            <GroupBox VerticalAlignment="Top" Header="Contacts Person" Grid.Row="4" Foreground="#FF3664B6"  Margin="2,0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="249*" />
+                        <ColumnDefinition Width="239*" />
+                        <ColumnDefinition Width="268*"/>
+                    </Grid.ColumnDefinitions>
+                    <telerik:RadWatermarkTextBox  WatermarkContent="Contact Name "  telerik:StyleManager.Theme="VisualStudio2013" Grid.Column="0" Name="ContactPerson" HorizontalAlignment="Stretch" VerticalAlignment="Center"  Margin="1,0"/>
+
+
+                    <telerik:RadWatermarkTextBox  WatermarkContent="Contact Number "  telerik:StyleManager.Theme="VisualStudio2013" MaxLength="13" Name="ContactPhone"  Grid.Column="1" HorizontalAlignment="Stretch"  VerticalAlignment="Center"  Margin="1,0"/>
+
+                    <telerik:RadWatermarkTextBox  WatermarkContent="Contact Address "  telerik:StyleManager.Theme="VisualStudio2013" Grid.Column="2" Name="ContactAddress" HorizontalAlignment="Stretch"  VerticalAlignment="Center" Margin="1,0"/>
+                </Grid>
+
+
+            </GroupBox>
+
+            <Grid Grid.Row="5" VerticalAlignment="Stretch"     Margin="2,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="190*"/>
+                    <ColumnDefinition Width="159*"/>
+                    <ColumnDefinition Width="45*"/>
+                    <ColumnDefinition Width="221*"/>
+                </Grid.ColumnDefinitions>
+
+                <CheckBox Name="AppointmentPaperIssued" Content="Appointment Paper Issued" HorizontalAlignment="Left" VerticalAlignment="Center" Height="15" Width="160"/>
+                <CheckBox Name="IDissued" Content="ID Issued" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Height="15" Width="68"/>
+
+                <TextBlock Foreground="#FF353536" TextWrapping="Wrap" Text="Shuttle" VerticalAlignment="Center" Height="16" Grid.Column="2" Margin="0,0,0,2"/>
+                <telerik:RadComboBox telerik:StyleManager.Theme="VisualStudio2013" Name="ShuttleDestination" SelectedValuePath="DestinationID" DisplayMemberPath="Destination" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Stretch" Height="22" Margin="0,2,0,1" />
+
+            </Grid>
+
+            <GroupBox Grid.Row="6"  Header="Others" Cursor="Hand" Foreground="#FF3664B6" Margin="2,0">
+                <Grid>
+                    <!--<Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60*" />
+                        <ColumnDefinition Width="145*"/>
+                        <ColumnDefinition Width="60*"/>
+                        <ColumnDefinition Width="145*"/>
+                        <ColumnDefinition Width="60*"/>
+                        <ColumnDefinition Width="145*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40*" />
+                        <RowDefinition Height="40*" />
+                        <RowDefinition Height="40*" />
+                    </Grid.RowDefinitions>-->
+
+
+                    <!--<TextBlock Foreground="#FF353536" TextWrapping="Wrap" Text="Education" VerticalAlignment="Center" Height="16" />-->
+                    <!--<TextBlock Foreground="#FF353536" TextWrapping="Wrap" Text="Age" VerticalAlignment="Center"  Grid.Row="1" Height="16" />-->
+                    <!--<TextBlock Foreground="#FF353536" TextWrapping="Wrap" Text="Civil Stats" VerticalAlignment="Center"  Grid.Row="1"  />-->
+                    <!--<TextBlock Foreground="#FF353536" TextWrapping="Wrap" Text="Nationality" VerticalAlignment="Center"  Grid.Row="2" />-->
+
+
+                    <!--<telerik:RadDatePicker x:Name="BirthDate"  Grid.Row="0" Grid.Column="1" VerticalAlignment="Center"   HorizontalAlignment="Stretch" DateTimeWatermarkContent="Select Birthdate" Margin="0,2" Height="22" SelectionChanged="BirthDate_SelectionChanged">
+                        <telerik:StyleManager.Theme>
+                            <telerik:VisualStudio2013Theme/>
+                        </telerik:StyleManager.Theme>
+                    </telerik:RadDatePicker>-->
+                    <!--<telerik:RadComboBox telerik:StyleManager.Theme="VisualStudio2013" Name="EducAttainment" SelectedValuePath="Code" DisplayMemberPath="Description" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch" />-->
+                    <!--<telerik:RadWatermarkTextBox  WatermarkContent="Age " telerik:StyleManager.Theme="VisualStudio2013" Name="Age" MaxLength="3" Grid.Row="1" VerticalAlignment="Center" IsEnabled="False"  HorizontalAlignment="Stretch" Margin="0,2"  Grid.Column="1" Height="22" />-->
+                    <!--<telerik:RadComboBox telerik:StyleManager.Theme="VisualStudio2013" Name="CivilStatus"  SelectedValuePath="Code" DisplayMemberPath="Description" Grid.Row="1" VerticalAlignment="Center"    HorizontalAlignment="Stretch" Margin="0,2"  Grid.Column="1" />-->
+                    <!--<telerik:RadComboBox telerik:StyleManager.Theme="VisualStudio2013" Name="Nationality"  SelectedValuePath="Code" DisplayMemberPath="Description" Grid.Row="2" VerticalAlignment="Center"    HorizontalAlignment="Stretch" Margin="0,2"  Grid.Column="1"  />-->
+
+
+                    <!--<TextBlock Foreground="#FF353536" TextWrapping="Wrap" Text="Blank" VerticalAlignment="Center"  Grid.Column="2" Margin="5,0,0,0"/>
+                    <TextBlock Foreground="#FF353536" TextWrapping="Wrap" Text="Blank" VerticalAlignment="Center"  Grid.Row="1"  Grid.Column="2"  Margin="5,0,0,0"/>-->
+                    <!--<TextBlock Foreground="#FF353536" TextWrapping="Wrap" Text="Religion" VerticalAlignment="Center"  Grid.Row="0"   Grid.Column="2" Margin="5,0,0,0"/>
+                    <TextBlock Foreground="#FF353536" TextWrapping="Wrap" Text="Gender" VerticalAlignment="Center"  Grid.Row="1"  Grid.Column="2" Margin="5,0,0,0"/>-->
+                    <!--<TextBlock Foreground="#FF353536" TextWrapping="Wrap" Text="SSS #" VerticalAlignment="Center"  Grid.Row="0" Grid.Column="2" Margin="5,0,0,0"/>
+                    <TextBlock Foreground="#FF353536" TextWrapping="Wrap" Text="Philhealth" VerticalAlignment="Center"  Grid.Row="1"   Grid.Column="2" Margin="5,0,0,0"/>
+
+                    <telerik:RadComboBox telerik:StyleManager.Theme="VisualStudio2013" Name="Religion" SelectedValuePath="Code" DisplayMemberPath="Description" Grid.Column="3" Grid.Row="0" VerticalAlignment="Center"    HorizontalAlignment="Stretch" />
+                    <telerik:RadComboBox telerik:StyleManager.Theme="VisualStudio2013" Name="Sex" SelectedValuePath="Code" DisplayMemberPath="Description" Grid.Column="3" Grid.Row="1" VerticalAlignment="Center"   HorizontalAlignment="Stretch" />
+                    
+                    
+                    <telerik:RadWatermarkTextBox  WatermarkContent="SSS # " telerik:StyleManager.Theme="VisualStudio2013" Name="SSSno" Grid.Column="3" Grid.Row="0" VerticalAlignment="Center"   HorizontalAlignment="Stretch" Margin="1,0"  />
+                    <telerik:RadWatermarkTextBox  WatermarkContent="PhilHealth # " telerik:StyleManager.Theme="VisualStudio2013" Name="PHno" Grid.Column="3" Grid.Row="1" VerticalAlignment="Center"  HorizontalAlignment="Stretch" Margin="1,0" />
+
+
+                    <TextBlock Foreground="#FF353536" TextWrapping="Wrap" Text="TIN #" VerticalAlignment="Center"  Grid.Row="0"  Grid.Column="4"  Margin="5,0,0,0"/>
+                    <TextBlock Foreground="#FF353536" TextWrapping="Wrap" Text="Pag-ibig" VerticalAlignment="Center"  Grid.Row="1"  Grid.Column="4" Margin="5,0,0,0"/>
+
+                    <telerik:RadWatermarkTextBox  WatermarkContent="TIN # " telerik:StyleManager.Theme="VisualStudio2013" Name="TIN" Grid.Column="5" Grid.Row="0" VerticalAlignment="Center"  HorizontalAlignment="Stretch" Margin="1,0"   />
+                    <telerik:RadWatermarkTextBox  WatermarkContent="Pag-ibig # " telerik:StyleManager.Theme="VisualStudio2013" Name="PagIbigNo" Grid.Column="5" Grid.Row="1" VerticalAlignment="Center"  HorizontalAlignment="Stretch" Margin="1,0"  />-->
+
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="42*" />
+                        <ColumnDefinition Width="25*"/>
+                        <ColumnDefinition Width="17*"/>
+                        <ColumnDefinition Width="42*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30*" />
+                        <RowDefinition Height="30*" />
+                        <RowDefinition Height="30*" />
+                        <RowDefinition Height="30*" />
+                    </Grid.RowDefinitions>
+
+
+                    <telerik:RadDatePicker x:Name="BirthDate"  SelectionChanged="BirthDate_SelectionChanged" Grid.Row="0" VerticalAlignment="Center" Margin="4,8" IsEnabled="False"   HorizontalAlignment="Stretch" DateTimeWatermarkContent="Select Birthdate" Height="22"   >
+                        <telerik:StyleManager.Theme>
+                            <telerik:VisualStudio2013Theme/>
+                        </telerik:StyleManager.Theme>
+                    </telerik:RadDatePicker>
+                    
+                    <telerik:RadWatermarkTextBox  WatermarkContent="Age " telerik:StyleManager.Theme="VisualStudio2013" Name="Age" MaxLength="3" Grid.Row="1" VerticalAlignment="Center" Margin="4,8" IsEnabled="False"  HorizontalAlignment="Stretch" Height="22"  />
+                    
+                    <telerik:RadWatermarkTextBox  WatermarkContent="Height " telerik:StyleManager.Theme="VisualStudio2013" Name="Height" MaxLength="5" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" Margin="4,8"   HorizontalAlignment="Stretch" Height="22"  />
+                    
+                    <telerik:RadComboBox  Opacity="0.8" telerik:StyleManager.Theme="VisualStudio2013" SelectedIndex="0" Name="HeightUnit"  
+                                          SelectedValuePath="HeightUnit" DisplayMemberPath="HeightUnit" Grid.Column="2" Grid.Row="0" VerticalAlignment="Center" Margin="4,8"  
+                                          HorizontalAlignment="Stretch" Height="22" />
+                    
+                    <telerik:RadWatermarkTextBox  WatermarkContent="Weight " telerik:StyleManager.Theme="VisualStudio2013" Name="Weight" MaxLength="5" 
+                                                  Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Margin="4,8"   HorizontalAlignment="Stretch" Height="22"  />
+                    
+                    <telerik:RadComboBox  Opacity="0.8" telerik:StyleManager.Theme="VisualStudio2013" SelectedIndex="0" Name="WeightUnit" SelectedValuePath="WeightUnit" DisplayMemberPath="WeightUnit"  Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" Margin="4,8"   HorizontalAlignment="Stretch" Height="22"  />
+                    
+                    <telerik:RadComboBox EmptyText="-- Select Civil Status --" Opacity="0.8" telerik:StyleManager.Theme="VisualStudio2013" Name="CivilStatus"  SelectedValuePath="Code" DisplayMemberPath="Description" Grid.Row="2" VerticalAlignment="Center" Margin="4,8"   HorizontalAlignment="Stretch" Height="22" />
+                    
+                    <telerik:RadComboBox EmptyText="-- Select Nationality --" Opacity="0.8" telerik:StyleManager.Theme="VisualStudio2013" Name="Nationality"  SelectedValuePath="Code" DisplayMemberPath="Description" Grid.Row="3" VerticalAlignment="Center" Margin="4,8,4,9"   HorizontalAlignment="Stretch" Height="22" />
+                    
+                    <telerik:RadComboBox EmptyText="-- Select Religion --" Opacity="0.8" telerik:StyleManager.Theme="VisualStudio2013" Name="Religion" SelectedValuePath="Code" DisplayMemberPath="Description" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" Margin="4,8"   HorizontalAlignment="Stretch"  Grid.ColumnSpan="2" Height="22"  />
+                    <telerik:RadComboBox EmptyText="-- Select Gender --" Opacity="0.8" telerik:StyleManager.Theme="VisualStudio2013" Name="Sex" SelectedValuePath="Code" DisplayMemberPath="Description" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" Margin="4,8,4,9"   HorizontalAlignment="Stretch"  Grid.ColumnSpan="2" Height="22"/>
+                    <telerik:RadWatermarkTextBox  WatermarkContent="SSS # " telerik:StyleManager.Theme="VisualStudio2013" Name="SSSno" Grid.Column="3" Grid.Row="0" VerticalAlignment="Center"  Margin="4,8"  HorizontalAlignment="Stretch" Height="22" />
+                    <telerik:RadWatermarkTextBox  WatermarkContent="TIN # " telerik:StyleManager.Theme="VisualStudio2013" Name="TIN" Grid.Column="3" Grid.Row="1" VerticalAlignment="Center" Margin="4,8"   HorizontalAlignment="Stretch" Height="22" />
+                    <telerik:RadWatermarkTextBox  WatermarkContent="PhilHealth # " telerik:StyleManager.Theme="VisualStudio2013" Name="PHno" Grid.Column="3" Grid.Row="2" VerticalAlignment="Center" Margin="4,8"   HorizontalAlignment="Stretch" Height="22" />
+                    <telerik:RadWatermarkTextBox  WatermarkContent="Pag-ibig # " telerik:StyleManager.Theme="VisualStudio2013" Name="PagIbigNo" Grid.Column="3" Grid.Row="3" VerticalAlignment="Center" Margin="4,8,4,9"   HorizontalAlignment="Stretch" Height="22" />
+
+
+
+                </Grid>
+            </GroupBox>
+
+
+
+
+        </Grid>
+
+        <Grid Grid.Row="3" Grid.ColumnSpan="2">
+            <Button Content="Cancel" Name="btncancel" HorizontalAlignment="Right" Margin="0,5,70,0" Grid.Row="1" VerticalAlignment="Top" Width="62" Height="20" Visibility="Hidden" Click="btncancel_Click"/>
+            <Button Content="Edit" Name="btnedit" HorizontalAlignment="Right" Margin="0,5,70,0" Grid.Row="1" VerticalAlignment="Top" Width="62" Height="20" Click="btnedit_Click"/>
+            <Button Content="Save" Name="btnsave" HorizontalAlignment="Right" Margin="0,5,5,0" Grid.Row="1" VerticalAlignment="Top" Width="62" Height="20" IsEnabled="False" Click="btnsave_Click"/>
+
+
+        </Grid>
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1259
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRinformationSystem", "HRinformationSystem\HRinformationSystem.csproj", "{4477DA7C-8B4D-4B62-B801-482514751582}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		CD_ROM|Any CPU = CD_ROM|Any CPU
+		CD_ROM|x86 = CD_ROM|x86
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		DVD-5|Any CPU = DVD-5|Any CPU
+		DVD-5|x86 = DVD-5|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+		SingleImage|Any CPU = SingleImage|Any CPU
+		SingleImage|x86 = SingleImage|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4477DA7C-8B4D-4B62-B801-482514751582}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{4477DA7C-8B4D-4B62-B801-482514751582}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{4477DA7C-8B4D-4B62-B801-482514751582}.CD_ROM|x86.ActiveCfg = Release|x86
+		{4477DA7C-8B4D-4B62-B801-482514751582}.CD_ROM|x86.Build.0 = Release|x86
+		{4477DA7C-8B4D-4B62-B801-482514751582}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4477DA7C-8B4D-4B62-B801-482514751582}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4477DA7C-8B4D-4B62-B801-482514751582}.Debug|x86.ActiveCfg = Debug|x86
+		{4477DA7C-8B4D-4B62-B801-482514751582}.Debug|x86.Build.0 = Debug|x86
+		{4477DA7C-8B4D-4B62-B801-482514751582}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{4477DA7C-8B4D-4B62-B801-482514751582}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{4477DA7C-8B4D-4B62-B801-482514751582}.DVD-5|x86.ActiveCfg = Debug|x86
+		{4477DA7C-8B4D-4B62-B801-482514751582}.DVD-5|x86.Build.0 = Debug|x86
+		{4477DA7C-8B4D-4B62-B801-482514751582}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4477DA7C-8B4D-4B62-B801-482514751582}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4477DA7C-8B4D-4B62-B801-482514751582}.Release|x86.ActiveCfg = Release|x86
+		{4477DA7C-8B4D-4B62-B801-482514751582}.Release|x86.Build.0 = Release|x86
+		{4477DA7C-8B4D-4B62-B801-482514751582}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{4477DA7C-8B4D-4B62-B801-482514751582}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{4477DA7C-8B4D-4B62-B801-482514751582}.SingleImage|x86.ActiveCfg = Release|x86
+		{4477DA7C-8B4D-4B62-B801-482514751582}.SingleImage|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3DBC1F13-E0A8-4ADA-B506-CD64982FC02B}
+	EndGlobalSection
+EndGlobal

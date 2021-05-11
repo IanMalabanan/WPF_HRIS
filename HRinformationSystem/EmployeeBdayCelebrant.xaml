@@ -1,0 +1,72 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" x:Class="HRinformationSystem.EmployeeBdayCelebrant"
+        Height="650" Width="840" Background="#FF127D9F" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"  Title="Employee Birthday Celebrant" Cursor="Hand">
+    <Grid Margin="0,1,0,0" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Foreground="#FF353536" TextWrapping="Wrap" Text="Select Month:" VerticalAlignment="Center" Grid.Row="0" Margin="10,5,10,2"/>
+            <telerik:RadComboBox telerik:StyleManager.Theme="VisualStudio2013" Name="cboMonth" SelectedValuePath="Month_Number" DisplayMemberPath="Month_Name" 
+                                 Grid.Row="1" Margin="10,2,10,5" VerticalAlignment="Center" HorizontalAlignment="Stretch" SelectionChanged="CboMonth_SelectionChanged" />
+        </Grid>
+
+        <telerik:RadGridView Name="gridEmployeeBdayCelebrant"  
+                             HorizontalAlignment="Stretch" 
+                             AutoGenerateColumns="False" 
+                             Margin="10" 
+                             Grid.Row="1" Grid.ColumnSpan="2"
+                             VerticalAlignment="Stretch" 
+                             GroupRenderMode="Flat"  
+                             RowIndicatorVisibility="Collapsed" 
+                             ShowGroupPanel="False"
+                             IsFilteringAllowed="True" >
+            <telerik:StyleManager.Theme>
+                <telerik:SummerTheme/>
+            </telerik:StyleManager.Theme>
+
+
+            <telerik:RadGridView.Columns >
+
+                <telerik:GridViewImageColumn Header="" IsReadOnly="True"
+											 DataMemberBinding="{Binding EmpPicture}"
+                                             RenderOptions.BitmapScalingMode="HighQuality"
+											 ImageHeight="35"
+											 ImageWidth="35"
+											 Width="55" />
+                <telerik:GridViewDataColumn Header="Employee ID" IsReadOnly="True"
+											DataMemberBinding="{Binding EmpID}"
+                                            Width="120"/>
+                <telerik:GridViewDataColumn Header="Name" IsReadOnly="True"
+											DataMemberBinding="{Binding Fullname}"
+                                            Width="140*"/>
+                <telerik:GridViewDataColumn Header="Department" IsReadOnly="True"
+											DataMemberBinding="{Binding DeptName}"
+											Width="135*"/>
+                <telerik:GridViewDataColumn Header="Section" IsReadOnly="True"
+											DataMemberBinding="{Binding SectName}"
+											Width="135*"/>
+                <telerik:GridViewDataColumn Header="Birthday"  DataFormatString=" {0:dd/MMM/yyyy}" 
+											DataMemberBinding="{Binding BirthDate}"
+											Width="80*"/>
+
+            </telerik:RadGridView.Columns>
+
+        </telerik:RadGridView>
+
+    </Grid>
+</Window>

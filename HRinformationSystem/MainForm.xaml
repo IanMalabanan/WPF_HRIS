@@ -1,0 +1,256 @@
+﻿<Window x:Class="HRinformationSystem.MainForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" Height="620" Width="900" 
+        WindowState="Maximized" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" Background="#FF3C3838" Cursor="Hand">
+    <Grid Margin="1" Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="282*"/>
+            <!--<ColumnDefinition Width="13*"/>-->
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="31*"/>
+            <RowDefinition Height="28*"/>
+            <RowDefinition Height="418*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+
+        <Image HorizontalAlignment="Left" Height="56" Margin="10,0,0,0" VerticalAlignment="Top" Width="258"  Grid.RowSpan="2" Source="/Images/Untitled-1.png" />
+
+        <telerik:RadButton  telerik:StyleManager.Theme="VisualStudio2013" x:Name="btnMinimize" FontWeight="DemiBold" Content="_" Grid.Column="1" HorizontalAlignment="Right" Height="24" Margin="0,2,28,0" 
+                            VerticalAlignment="Top" Width="24" Background="{x:Null}" Click="BtnMinimize_Click" BorderBrush="{x:Null}"/>
+
+        <telerik:RadButton  telerik:StyleManager.Theme="VisualStudio2013" x:Name="btnclose" Content="X" FontWeight="DemiBold"  Grid.Column="1" HorizontalAlignment="Right" Height="24" Margin="0,2,2,0" 
+                            VerticalAlignment="Top" Width="24" Click="btnclose_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
+        
+        <Grid Grid.Column="0" Grid.Row="2" Margin="10,10,10,10" >
+            <Grid.Resources>
+                <Style TargetType="TextBlock" x:Key="TileLabelStyle">
+                    <Setter Property="FontSize" Value="14" />
+                    <Setter Property="FontFamily" Value="Segoe UI" />
+                    <Setter Property="Margin" Value="10" />
+                    <Setter Property="Foreground" Value="White" />
+                    <Setter Property="VerticalAlignment" Value="Bottom"/>
+                </Style>
+
+                <DataTemplate  x:Key="GroupTemplate">
+                    <TextBlock Text="{Binding}"
+                           FontSize="16"
+                           FontFamily="Segoe UI"
+                           Foreground="#FF5A6EB4"
+                           VerticalAlignment="Top"
+                           HorizontalAlignment="Left"/>
+                </DataTemplate>
+
+            </Grid.Resources>
+            <telerik:RadTileList  VerticalTilesAlignment="Top" telerik:StyleManager.Theme="Fluent"  Cursor="Hand" 
+                                  GroupTemplate="{StaticResource GroupTemplate}" Foreground="#FF1C1C1C">
+                <telerik:RadTileList.Background>
+                    <ImageBrush Opacity="0.8"/>
+                </telerik:RadTileList.Background>
+                <!--<telerik:RadTileList.PanoramaBackground>
+                    <Image Stretch="Fill"  Source="Images/bgd.jpg"  />
+                </telerik:RadTileList.PanoramaBackground>-->
+                <telerik:RadTileList.Groups>
+
+                    <telerik:TileGroup Header="Code Maintenance" DisplayIndex="1">
+                        <telerik:TileGroup.Items>
+                            <telerik:Tile MouseDown="Tile_MouseDown_1" Name="departmentbox" 
+                                TileType="Single">
+                                <telerik:Tile.Background>
+                                    <SolidColorBrush Color="White" />
+                                </telerik:Tile.Background>
+                                <Grid >
+                                    <Image Source="Images/department.jpg" />
+                                    <TextBlock Text="Department"  Style="{StaticResource TileLabelStyle}" Foreground="#FF545559" FontWeight="Bold">
+                                        <TextBlock.Background>
+                                            <SolidColorBrush Color="AliceBlue" Opacity="0.8"/>
+                                        </TextBlock.Background>
+                                    </TextBlock>
+
+                                </Grid>
+                            </telerik:Tile>
+
+                            <telerik:Tile MouseDown="Tile_MouseDown_3" Name="sectionbox" 
+                                TileType="Single"  >
+                                <telerik:Tile.Background>
+                                    <ImageBrush ImageSource="/Images/sect.jpg"/>
+                                </telerik:Tile.Background>
+                                <Grid>
+                                    <TextBlock Text="Section" Style="{StaticResource TileLabelStyle}" Foreground="#FF545559" FontWeight="Bold">
+                                    </TextBlock>
+                                </Grid>
+                            </telerik:Tile>
+
+                            <telerik:Tile  Name="positionbox" 
+                            TileType="Single" MouseDown="Tile_MouseDown_2" Foreground="#FF2DBDDF">
+                                <telerik:Tile.Background>
+                                    <ImageBrush ImageSource="/Images/posi.jpg"/>
+                                </telerik:Tile.Background>
+                                <Grid>
+                                    <TextBlock Text="Position"  Style="{StaticResource TileLabelStyle}" Foreground="#FF3A6DB6" FontWeight="Bold"/>
+
+                                </Grid>
+                            </telerik:Tile>
+
+
+                            <telerik:Tile MouseDown="Tile_MouseDown_4"
+                                TileType="Single" >
+
+                                <Grid >
+                                    <Image Source="Images/bus.jpg"  />
+                                    <TextBlock Text="Shuttle" Style="{StaticResource TileLabelStyle}"  Margin="10,0,67,10" Foreground="#FF3367B2" FontWeight="Bold">
+                                    </TextBlock>
+                                </Grid>
+                            </telerik:Tile>
+
+                        </telerik:TileGroup.Items>
+                    </telerik:TileGroup>
+
+
+                    <telerik:TileGroup Header="Employee" DisplayIndex="0">
+                        <telerik:TileGroup.Items>
+                            <telerik:Tile
+                                TileType="Double" MouseDown="Tile_MouseDown" Background="#FF347FA4" >
+
+                                <Grid>
+
+                                    <Image  Stretch="Fill"  Margin="25" Source="Images/employee.png" OpacityMask="#FF55C6DE"/>
+                                    <TextBlock Text="Employee Master" VerticalAlignment="Bottom" Style="{StaticResource TileLabelStyle}" Foreground="#FFFBFDFD" FontWeight="Bold"/>
+
+                                </Grid>
+                            </telerik:Tile>
+
+                            <!--MouseDown="Tile_MouseDown_7"-->
+                            <telerik:Tile  
+                               MouseDown="Tile_MouseDown_7"
+                          TileType="Double" Foreground="#FFF3F5F7" >
+                                <telerik:Tile.Background>
+                                    <RadialGradientBrush>
+                                        <GradientStop Color="#FF3F4360" Offset="1"/>
+                                        <GradientStop Color="#FFA1ADD7"/>
+                                    </RadialGradientBrush>
+                                </telerik:Tile.Background>
+                                <Grid >
+                                    <TextBlock VerticalAlignment="Bottom" Text="Archive" Style="{StaticResource TileLabelStyle}" Foreground="#FFF5F8FB" FontWeight="Bold"/>
+                                    <Image Source="Images/arch.jpg" Margin="10,15,10,26" Stretch="Fill"/>
+                                </Grid>
+                            </telerik:Tile>
+
+
+
+                            <telerik:Tile 
+                                MouseDown="Tile_MouseDown_9"  TileType="Single"  >
+                                <telerik:Tile.Background>
+                                    <ImageBrush ImageSource="Images/id.jpg"/>
+                                </telerik:Tile.Background>
+
+                                <Grid  >
+                                    <TextBlock Text="Create ID" Style="{StaticResource TileLabelStyle}" Foreground="#FF49423F" FontWeight="Bold" />
+                                </Grid>
+                            </telerik:Tile>
+
+
+                            <telerik:Tile 
+                                TileType="Single" MouseDown="Tile_MouseDown_11" Background="White" >
+                                <Grid>
+                                    <Image Source="Images/bday.png"  Stretch="Fill"/>
+                                    <TextBlock Text="B-day Celebrant" Style="{StaticResource TileLabelStyle}" Foreground="#FFDCA07F" FontWeight="Bold">
+                                    </TextBlock>
+                                </Grid>
+                            </telerik:Tile>
+
+
+
+
+
+                            <telerik:Tile 
+                                MouseDown="Tile_MouseDown_10"
+                          TileType="Double" Foreground="#FFF3F5F7" Background="White" >
+                                <Grid >
+                                    <Image  Stretch="Fill"  Source="Images/reclas.jpg" OpacityMask="Black"/>
+                                    <TextBlock Text="ReClassification" Style="{StaticResource TileLabelStyle}" Foreground="#FF61A5E6" FontWeight="Bold" />
+                                </Grid>
+                            </telerik:Tile>
+
+                            <telerik:Tile 
+                                TileType="Double" MouseDown="Tile_MouseDown_8" >
+                                <telerik:Tile.Background>
+                                    <RadialGradientBrush>
+                                        <GradientStop Color="#FF3F4360" Offset="1"/>
+                                        <GradientStop Color="#FFA1ADD7"/>
+                                    </RadialGradientBrush>
+                                </telerik:Tile.Background>
+                                <Grid>
+                                    <Image Source="Images/document.png"  Stretch="Fill"/>
+                                    <TextBlock Text="Certificate Of Employment" Style="{StaticResource TileLabelStyle}" Foreground="#FFF5F8FB" FontWeight="Bold">
+                                    </TextBlock>
+                                </Grid>
+                            </telerik:Tile>
+
+
+                            <telerik:Tile 
+                          TileType="Double"  MouseDown="Tile_MouseDown_12" Background="#FFEEE8E8">
+                                <Grid>
+                                    <Image Source="Images/evalua.jpg" OpacityMask="Black" Stretch="Fill" />
+                                    <TextBlock Text="Employee for Evaluation"  Style="{StaticResource TileLabelStyle}" Foreground="#FF101126" FontWeight="Bold" Background="#FFF3F3F3" Opacity="0.9" Margin="10,0,116,10"/>
+                                </Grid>
+                            </telerik:Tile>
+
+                        </telerik:TileGroup.Items>
+                    </telerik:TileGroup>
+
+                    <!--           <telerik:Tile 
+                          TileType="Double"  MouseDown="Tile_MouseDown_8">
+                                <telerik:Tile.Background>
+                                    <RadialGradientBrush>
+                                        <GradientStop Color="#FF409BC9" Offset="1"/>
+                                        <GradientStop Color="#FFCAE2ED"/>
+                                    </RadialGradientBrush>
+                                </telerik:Tile.Background>
+                                <Grid>
+                                    <Image Source="Images/busout.png" Margin="30,24,30,34"/>
+                                    <TextBlock Text="Employees Outgoing"  Style="{StaticResource TileLabelStyle}"/>
+                                </Grid>
+                            </telerik:Tile>
+
+
+                        </telerik:TileGroup.Items>
+                    </telerik:TileGroup>-->
+
+
+                    <telerik:TileGroup Header="System" DisplayIndex="3">
+                        <telerik:TileGroup.Items>
+
+                            <!--Visibility="Collapsed"-->
+                            <telerik:Tile  MouseDown="Tile_MouseDown_5" Name="newuserbox"  
+                                TileType="Single" Background="#FFF2F2F2" >
+                                <Grid>
+                                    <TextBlock Text="Users" Style="{StaticResource TileLabelStyle}" Foreground="#FF096B9F" FontWeight="Bold"/>
+                                    <Image Source="Images/users.png" Margin="15"/>
+                                </Grid>
+                            </telerik:Tile>
+
+                            <telerik:Tile  
+                                TileType="Single"  MouseDown="Tile_MouseDown_6" Background="#FFF2F2F2" >
+                                <Grid>
+                                    <TextBlock Text="System About" Style="{StaticResource TileLabelStyle}" Foreground="#FF096B9F" FontWeight="Bold"/>
+                                    <Image Source="Images/about.png" Margin="20"/>
+                                </Grid>
+                            </telerik:Tile>
+
+                        </telerik:TileGroup.Items>
+                    </telerik:TileGroup>
+                </telerik:RadTileList.Groups>
+
+            </telerik:RadTileList>
+
+        </Grid>
+        <TextBlock Name="adminusers"  Visibility="Hidden" Text="user" TextAlignment="Right" HorizontalAlignment="Left" Height="23" Margin="669,6,0,1" Grid.Row="1" RenderTransformOrigin="6.525,0.432" Width="105" FontWeight="Bold" />
+        <TextBlock Name="userstype" Visibility="Hidden" Text="usertype" TextAlignment="Right" HorizontalAlignment="Left" Height="23" Margin="569,6,0,1" Grid.Row="1" RenderTransformOrigin="6.525,0.432" Width="105" />
+
+
+
+
+    </Grid>
+</Window>

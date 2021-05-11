@@ -1,0 +1,121 @@
+﻿<Window x:Class="HRinformationSystem.EmployeeReClass"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        Title="Employee ReClassification"  Cursor="Hand" Height="373" Width="746" WindowStartupLocation="CenterScreen"  ResizeMode="NoResize"  Background="#FF1585A7">
+    <Grid Background="White" Margin="0,1,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120*"/>
+            <RowDefinition Height="240*"/>
+        </Grid.RowDefinitions>
+
+
+
+        <Grid Grid.Row="0" Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="131*"/>
+                <ColumnDefinition Width="145*"/>
+                <ColumnDefinition Width="63*"/>
+                <ColumnDefinition Width="121*"/>
+                <ColumnDefinition Width="137*"/>
+                <ColumnDefinition Width="123*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="17*"/>
+                <RowDefinition Height="25*"/>
+                <RowDefinition Height="22*"/>
+                <RowDefinition Height="33*"/>
+            </Grid.RowDefinitions>
+            <Border BorderBrush="Gray" Grid.RowSpan="4" Grid.ColumnSpan="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="2"/>
+            <Border BorderBrush="Gray" Grid.RowSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="1"/>
+            <Border BorderBrush="Gray" Grid.RowSpan="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="1"/>
+            <Border BorderBrush="Gray" Grid.RowSpan="2" Grid.Column="2" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="1"/>
+            <Border BorderBrush="Gray" Grid.RowSpan="2" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="1"/>
+            <Border BorderBrush="Gray" Grid.RowSpan="2" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="1"/>
+            <Border BorderBrush="Gray" Grid.RowSpan="4" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="1">
+                <Image Name="EmpImage" Source="{Binding [EmpPicture]}"  Stretch="Fill" Margin="1"/>
+            </Border>
+
+
+
+
+
+            <TextBlock HorizontalAlignment="Left" Margin="8,4,0,0" TextWrapping="Wrap" Text="DATE HIRED" VerticalAlignment="Top" Height="16" Width="86" Grid.RowSpan="2"/>
+            <TextBlock HorizontalAlignment="Left" Margin="8,4,0,0" TextWrapping="Wrap" Text="ID NO." VerticalAlignment="Top" Grid.Column="1" Height="16" Width="36" Grid.RowSpan="2"/>
+            <TextBlock HorizontalAlignment="Left" Margin="8,4,0,0" TextWrapping="Wrap" Text="EMPLOYEE NAME" VerticalAlignment="Top" Grid.Column="0" Grid.Row="2" Height="16" Width="107"/>
+            <TextBlock HorizontalAlignment="Left" Margin="8,4,0,0" TextWrapping="Wrap" Text="POSITION" VerticalAlignment="Top" Grid.Column="2"  Grid.Row="2" Height="16" Width="107" Grid.ColumnSpan="2"/>
+            <TextBlock HorizontalAlignment="Left" Margin="8,4,0,0"  TextWrapping="Wrap" Text="DEPARTMENT/SECTON" VerticalAlignment="Top" Grid.Column="2" Height="16" Width="171" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+
+
+
+            <TextBlock Name="datehired" HorizontalAlignment="Left" Margin="8,4,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.Row="1" FontWeight="Bold" Height="16" Width="145" Grid.ColumnSpan="2" />
+            <TextBlock Name="idnum" HorizontalAlignment="Left" Margin="8,4,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" FontWeight="Bold" Height="16" Width="113"/>
+            <telerik:RadComboBox Name="EmpName" EmptyText="-- Select Employee --" IsEditable="True" SelectedValuePath="EmpID"  DisplayMemberPath="Fullname" 
+                                 telerik:StyleManager.Theme="VisualStudio2013" HorizontalAlignment="Stretch" Margin="10,2,10,0" Grid.Row="3" Grid.ColumnSpan="2" 
+                                 VerticalAlignment="Top"  Height="25" SelectionChanged="EmpName_SelectionChanged" />
+            <TextBlock Name="position" HorizontalAlignment="Left" Margin="8,4,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.Row="3" Grid.Column="2" FontWeight="Bold" Height="16" Width="189" Grid.ColumnSpan="3" />
+            <TextBlock Name="DeptSect" HorizontalAlignment="Left" Margin="8,4,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.Row="1" Grid.Column="2" FontWeight="Bold" Height="16" Width="321" Grid.ColumnSpan="4" />
+
+        </Grid>
+
+
+        <Grid HorizontalAlignment="Stretch"  Margin="5" Grid.Row="1" VerticalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="97*"/>
+                <ColumnDefinition Width="97*"/>
+                <ColumnDefinition Width="248*"/>
+                <ColumnDefinition Width="132*"/>
+                <ColumnDefinition Width="146*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="35*"/>
+
+            </Grid.RowDefinitions>
+            <Border Grid.ColumnSpan="5"  BorderBrush="Gray" BorderThickness="2"  Background="#FF11799C"/>
+            <Border Grid.ColumnSpan="5"  BorderBrush="Gray" BorderThickness="1" Grid.Row="1" />
+            <Border Grid.ColumnSpan="5"  BorderBrush="Gray" BorderThickness="1" Grid.Row="2"/>
+            <Border Grid.ColumnSpan="5"  BorderBrush="Gray" BorderThickness="1" Grid.Row="3"/>
+            <Border Grid.ColumnSpan="5"  BorderBrush="Gray" BorderThickness="1" Grid.Row="4"/>
+            <Border Grid.ColumnSpan="5"  BorderBrush="Gray" BorderThickness="1" Grid.Row="0" Grid.RowSpan="5"/>
+            <Border Grid.Column="2" Grid.RowSpan="5" BorderBrush="Gray" BorderThickness="1" />
+            <Border Grid.Column="3" Grid.RowSpan="5" BorderBrush="Gray" BorderThickness="1" Margin="0" Grid.ColumnSpan="2" />
+
+            <TextBlock HorizontalAlignment="Center"  Margin="24,8,24,0" Grid.ColumnSpan="2" TextWrapping="Wrap" Text="C L A S S I F I C A T I O N" VerticalAlignment="Top"  Width="146" FontWeight="Bold" Height="16" Foreground="#FFF7F5F5"/>
+            <TextBlock HorizontalAlignment="Center" Margin="90,8,90,0" TextWrapping="Wrap" Text="F R O M" VerticalAlignment="Top" Grid.Column="2" FontWeight="Bold" Height="16" Foreground="#FFF9F6F6"/>
+            <TextBlock HorizontalAlignment="Center" Margin="110,8,110,0" TextWrapping="Wrap" Text="T O" VerticalAlignment="Top" Grid.Column="3" Width="38" FontWeight="Bold" Height="16" Foreground="#FFF9F7F7" Grid.ColumnSpan="2"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,8,0,0" TextWrapping="Wrap" Text="DEPARTMENT" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Row="1" Width="166" Height="16" />
+            <TextBlock HorizontalAlignment="Left" Margin="10,8,0,0" TextWrapping="Wrap" Text="SECTION" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Row="2" Width="166" Height="16" />
+            <TextBlock HorizontalAlignment="Left" Margin="10,8,0,0" TextWrapping="Wrap" Text="POSITION" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Row="3" Width="166" Height="16" />
+            <TextBlock HorizontalAlignment="Left" Margin="10,8,0,0" TextWrapping="Wrap" Text="EMPLOYMENT STATUS" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Row="4" Width="166" Height="16" />
+            <TextBox Name="DepartmentOld"   IsReadOnly="True"   telerik:StyleManager.Theme="Office_Blue"  Grid.Column="2" HorizontalAlignment="Stretch" Margin="5" Grid.Row="1" VerticalAlignment="Stretch" Foreground="#FF036EEE" />
+
+            <telerik:RadComboBox Name="DepartmentNew" IsEnabled="False" SelectedValuePath="DeptCode" DisplayMemberPath="DeptName" telerik:StyleManager.Theme="VisualStudio2013" Grid.Column="3" HorizontalAlignment="Stretch" Margin="5" Grid.Row="1" VerticalAlignment="Stretch" SelectionChanged="DepartmentNew_SelectionChanged" Grid.ColumnSpan="2"/>
+
+            <TextBox Name="SectionOld" IsReadOnly="True" telerik:StyleManager.Theme="Office_Blue"  Grid.Column="2" Grid.Row="2" HorizontalAlignment="Stretch" Margin="5"   VerticalAlignment="Stretch" Foreground="#FF036EEE"/>
+            <telerik:RadComboBox Name="SectionNew" IsEnabled="False" SelectedValuePath="SectCode" DisplayMemberPath="SectName" telerik:StyleManager.Theme="VisualStudio2013" Grid.Column="3" Grid.Row="2" HorizontalAlignment="Stretch" Margin="5"  VerticalAlignment="Stretch" Grid.ColumnSpan="2" />
+
+            <TextBox Name="PositionOld" IsReadOnly="True" telerik:StyleManager.Theme="Office_Blue"  Grid.Column="2" Grid.Row="3" HorizontalAlignment="Stretch" Margin="5"  VerticalAlignment="Stretch" Foreground="#FF036EEE"/>
+            <telerik:RadComboBox Name="PositionNew" IsEnabled="False"  SelectedValuePath="Code" DisplayMemberPath="Description" telerik:StyleManager.Theme="VisualStudio2013" Grid.Column="3" Grid.Row="3" HorizontalAlignment="Stretch" Margin="5"  VerticalAlignment="Stretch" Grid.ColumnSpan="2" />
+
+            <TextBox Name="EmployementStatusOld" IsReadOnly="True"  telerik:StyleManager.Theme="Office_Blue"  Grid.Column="2" Grid.Row="4" HorizontalAlignment="Stretch" Margin="5" Foreground="#FF036EEE"/>
+            <telerik:RadComboBox Name="EmployementStatusNew" IsEnabled="False" telerik:StyleManager.Theme="VisualStudio2013" SelectedValuePath="Code" DisplayMemberPath="Description" Grid.Column="3" Grid.Row="4" HorizontalAlignment="Stretch" Margin="5"  VerticalAlignment="Stretch" Grid.ColumnSpan="2"/>
+
+            <TextBlock   x:Name ="errormessage" TextAlignment="Right" Grid.Row="5" Grid.Column="2"  HorizontalAlignment="Right" VerticalAlignment="Center"  Text="" OpacityMask="Crimson" Foreground="#FFE5572C" Grid.ColumnSpan="2"  />
+
+
+            <Button Name="btnSave" IsEnabled="False" Content="Save" Grid.Row="5" Grid.Column="4"  HorizontalAlignment="Stretch" Height="Auto" Margin="10,8,0,2" VerticalAlignment="Stretch" FontSize="10"  Click="btnSave_Click"/>
+
+
+
+        </Grid>
+        <TextBlock Visibility="Hidden" Name="adminuser" HorizontalAlignment="Right" Margin="15" TextWrapping="Wrap" Text="user" VerticalAlignment="Top"/>
+
+
+
+    </Grid>
+</Window>

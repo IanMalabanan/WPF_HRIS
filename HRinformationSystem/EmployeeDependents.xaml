@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="HRinformationSystem.EmployeeDependents"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
+             mc:Ignorable="d" 
+             Height="375" Width="800"  Background="#FFFBF9F9" Loaded="UserControl_Loaded" >
+    <Grid x:Name="LayoutRoot" Margin="2">
+
+        <TextBlock x:Name="EmpID" HorizontalAlignment="Left" Margin="27,16,0,0" TextWrapping="Wrap" Text="{Binding EmpID}" VerticalAlignment="Center" Visibility="Hidden" />
+
+
+        <telerik:RadGridView Name="gridDependent" 
+                             HorizontalAlignment="Stretch" 
+                             AutoGenerateColumns="False" 
+                             Margin="5"  CanUserInsertRows="True"
+                             VerticalAlignment="Stretch"       
+                             GroupRenderMode="Flat" PreviewKeyDown="gridDependent_PreviewKeyDown"
+                             RowIndicatorVisibility="Collapsed" 
+                             ShowGroupPanel="False"  RowEditEnded="gridDependent_RowEditEnded"
+                             NewRowPosition="Bottom" AddingNewDataItem="gridDependent_AddingNewDataItem"
+                             IsFilteringAllowed="False" >
+            <telerik:StyleManager.Theme>
+                <telerik:SummerTheme/>
+            </telerik:StyleManager.Theme>
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn Header="Name" 
+										DataMemberBinding="{Binding Name}"  
+                                        Width="200*"/>
+                <telerik:GridViewDataColumn Header="BirthDate" DataFormatString=" {0:dd/MMM/yyyy}" 
+										DataMemberBinding="{Binding BirthDate}" IsEnabled="False"  FilterMemberPath="DateNow.Value.Date"
+                                        Width="100*"/>
+                <telerik:GridViewComboBoxColumn Header="Relationship" 
+										DataMemberBinding="{Binding Relationship}" Name="Relationship" 
+                                        SelectedValueMemberPath="Relationship" 
+                                        DisplayMemberPath="Relationship"
+                                        Width="150*"/>
+                <telerik:GridViewDataColumn Header="Occupation" 
+										DataMemberBinding="{Binding Occupation}"  
+                                        Width="150*"/>
+                <telerik:GridViewDataColumn Header="MaidenName" 
+										DataMemberBinding="{Binding MaidenName}"  
+                                        Width="170*"/>
+            </telerik:RadGridView.Columns>
+        </telerik:RadGridView>
+
+
+
+    </Grid>
+</UserControl>

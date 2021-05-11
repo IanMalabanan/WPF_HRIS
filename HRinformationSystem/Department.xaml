@@ -1,0 +1,36 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" x:Class="HRinformationSystem.Department" 
+        Title="Department"  Cursor="Hand" Height="390" Width="400" Background="#FF1585A7" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid  Background="White" Margin="0,1,0,0">
+
+
+        <telerik:RadGridView  Name="gridDepartment" 
+                             GroupRenderMode="Flat"
+							 ColumnWidth="*"
+                             Margin="5"
+							 AutoGenerateColumns="False"
+							 HorizontalAlignment="Center"
+							 CanUserFreezeColumns="False"  
+                             ShowGroupPanel="False"
+                             IsFilteringAllowed="False"
+							 RowIndicatorVisibility="Collapsed"
+                             NewRowPosition="Top" AddingNewDataItem="gridDepartment_AddingNewDataItem"
+                             RowEditEnded="gridDepartment_RowEditEnded"
+                             PreviewKeyDown="gridDepartment_PreviewKeyDown">
+            <telerik:StyleManager.Theme>
+                <telerik:FluentTheme/>
+            </telerik:StyleManager.Theme>
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn x:Name="Code" Header="Code" 
+										DataMemberBinding="{Binding DeptCode}"  
+                                        Width="100"/>
+                <telerik:GridViewDataColumn x:Name="Desc" Header="Description"
+										DataMemberBinding="{Binding DeptName}"  
+                                        Width="200*"/>
+            </telerik:RadGridView.Columns>
+
+        </telerik:RadGridView>
+    </Grid>
+</Window>

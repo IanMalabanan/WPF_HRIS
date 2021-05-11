@@ -1,0 +1,173 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" x:Class="HRinformationSystem.CreateEmpoyeeID"
+        Title="CreateEmpoyeeID"  Height="580" Width="910" WindowStartupLocation="CenterScreen"  Cursor="Hand" ResizeMode="NoResize">
+    <Grid Background="WhiteSmoke">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="13*"/>
+            <RowDefinition Height="483*"/>
+            <RowDefinition Height="55*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300*"/>
+            <ColumnDefinition Width="390*"/>
+            <ColumnDefinition Width="90*"/>
+            <ColumnDefinition Width="90*"/>
+            <ColumnDefinition Width="90*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid  Margin="5,2,5,5"  VerticalAlignment="Stretch" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="154*"/>
+                <ColumnDefinition Width="157*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="46*"/>
+                <RowDefinition Height="393*"/>
+                <RowDefinition Height="29*"/>
+                <RowDefinition Height="8*"/>
+            </Grid.RowDefinitions>
+
+            <telerik:RadComboBox Name="EmpName" EmptyText="-- Select Employee --" SelectionChanged="EmpName_SelectionChanged" telerik:StyleManager.Theme="Summer" IsEditable="True" SelectedValuePath="EmpID"  DisplayMemberPath="Fullname" VerticalAlignment="Top" HorizontalAlignment="Stretch" Height="30" Grid.ColumnSpan="2" />
+
+
+            <GroupBox Margin="2,10" Grid.ColumnSpan="2" Grid.Row="1" Background="White">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="139*"/>
+                        <RowDefinition Height="226*"/>
+                    </Grid.RowDefinitions>
+
+                    <Border BorderThickness="1" BorderBrush="#FF0E73C7"  Grid.Column="1" HorizontalAlignment="Stretch" Margin="0,25,5,15"    VerticalAlignment="Stretch"  >
+                        <Border.Background>
+                            <ImageBrush ImageSource="/Images/no-image.png"/>
+                        </Border.Background>
+                        <Image Name="EmpImage" Stretch="Fill" Margin="1"/>
+                    </Border>
+                    <TextBlock Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Center" Name="employeeID"></TextBlock>
+                    
+                    <GroupBox  Grid.ColumnSpan="2" Grid.Row="1" Margin="5,5,5,10">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="23*"/>
+                                <RowDefinition Height="30*"/>
+                                <RowDefinition Height="20*"/>
+                                <RowDefinition Height="15*"/>
+                                <RowDefinition Height="20*"/>
+                                <RowDefinition Height="27*"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Text="Name" VerticalAlignment="Center"></TextBlock>
+                            <Separator Grid.Row="2" VerticalAlignment="Center" Foreground="#FFEEEEF2" Background="#FFEEEEF2"/>
+                            <TextBlock Grid.Row="3" Text="Position" VerticalAlignment="Bottom"></TextBlock>
+
+                            <TextBlock  Grid.Row="1" Name="EmpFName" VerticalAlignment="Center" TextAlignment="Center" HorizontalAlignment="Stretch" FontSize="16" Grid.RowSpan="2"></TextBlock>
+                            <TextBlock  Grid.Row="4" Name="Position" VerticalAlignment="Center" TextAlignment="Center" HorizontalAlignment="Stretch" FontSize="14" ></TextBlock>
+                            <TextBlock  Grid.Row="5" Name="Department" VerticalAlignment="Top" TextAlignment="Center" HorizontalAlignment="Stretch" FontSize="14" ></TextBlock>
+
+
+                        </Grid>
+                    </GroupBox>
+
+                </Grid>
+
+            </GroupBox>
+            <!--<Border BorderThickness="1" BorderBrush="#FF0E73C7"  Grid.Column="1" HorizontalAlignment="Stretch" Margin="5,2,2,2"  Grid.Row="1"  VerticalAlignment="Stretch"  >
+                <Border.Background>
+                    <ImageBrush ImageSource="/Images/no-image.png"/>
+                </Border.Background>
+                <Image Name="EmpImage" Stretch="Fill" Margin="1"/>
+            </Border>
+
+            <GroupBox  Grid.ColumnSpan="2" Grid.Row="2" Margin="2,10">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="23*"/>
+                        <RowDefinition Height="45*"/>
+                        <RowDefinition Height="10*"/>
+                        <RowDefinition Height="15*"/>
+                        <RowDefinition Height="27*"/>
+                        <RowDefinition Height="27*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Name" VerticalAlignment="Bottom"></TextBlock>
+                    <Separator Grid.Row="2" VerticalAlignment="Bottom" Foreground="#FFEEEEF2" Background="#FFEEEEF2"/>
+                    <TextBlock Grid.Row="3" Text="Position" VerticalAlignment="Bottom"></TextBlock>
+
+                    <TextBlock  Grid.Row="1" Name="EmpFName" VerticalAlignment="Center" TextAlignment="Center" HorizontalAlignment="Stretch" FontSize="14" Grid.RowSpan="2"></TextBlock>
+                    <TextBlock  Grid.Row="4" Name="Position" VerticalAlignment="Center" TextAlignment="Center" HorizontalAlignment="Stretch" FontSize="12" ></TextBlock>
+                    <TextBlock  Grid.Row="5" Name="Department" VerticalAlignment="Center" TextAlignment="Center" HorizontalAlignment="Stretch" FontSize="12" ></TextBlock>
+
+
+                </Grid>
+            </GroupBox>-->
+
+            <telerik:RadButton telerik:StyleManager.Theme="VisualStudio2013" Content="Add" Margin="40,0,3,0" Click="RadButton_Click" HorizontalAlignment="Stretch" Height="28"  Grid.Row="2" VerticalAlignment="Top" Grid.Column="1"/>
+
+        </Grid>
+
+        <telerik:RadGridView Name="gridEmpforID" ShowGroupPanel="False" IsFilteringAllowed="False" LeftFrozenColumnCount="3" HorizontalAlignment="Stretch" 
+                             AutoGenerateColumns="False"  PreviewKeyDown="gridEmpforID_PreviewKeyDown" Margin="5,2,4.875,5"  VerticalAlignment="Stretch"   
+                             Grid.Column="1" GroupRenderMode="Flat"   RowIndicatorVisibility="Collapsed" Grid.ColumnSpan="4" Grid.Row="1">
+            <telerik:StyleManager.Theme>
+                <telerik:SummerTheme/>
+            </telerik:StyleManager.Theme>
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn Header="BatchNo" IsReadOnly="True" 
+										DataMemberBinding="{Binding BatchNo}"  
+                                        Width="60"/>
+                <telerik:GridViewDataColumn Header="EmpID" IsReadOnly="True"
+										DataMemberBinding="{Binding EmpID}"  
+                                        Width="100"/>
+                <telerik:GridViewDataColumn Header="EmpName" IsReadOnly="True"
+										DataMemberBinding="{Binding EmployeeName}"  
+                                        Width="200"/>
+                <telerik:GridViewDataColumn Header="Department" IsReadOnly="True"
+										DataMemberBinding="{Binding Department}"  
+                                        Width="150"/>
+                <telerik:GridViewDataColumn Header="Position" IsReadOnly="True"
+										DataMemberBinding="{Binding Position}"  
+                                        Width="150"/>
+                <telerik:GridViewDataColumn Header="SSSno" IsReadOnly="True"
+										DataMemberBinding="{Binding SSSno}"  
+                                        Width="100"/>
+                <telerik:GridViewDataColumn Header="TIN" IsReadOnly="True"
+										DataMemberBinding="{Binding TIN}"  
+                                        Width="100"/>
+                <telerik:GridViewDataColumn Header="Contact Person" IsReadOnly="True"
+										DataMemberBinding="{Binding ContactPerson}"  
+                                        Width="150"/>
+                <telerik:GridViewDataColumn Header="Contact Address" IsReadOnly="True"
+										DataMemberBinding="{Binding ContactAddress}"  
+                                        Width="200"/>
+                <telerik:GridViewDataColumn Header="Contact Phone" IsReadOnly="True"
+										DataMemberBinding="{Binding ContactPhone}"  
+                                        Width="100"/>
+                <telerik:GridViewDataColumn Header="BarcodeID" IsReadOnly="True"
+										DataMemberBinding="{Binding Barcode}"  
+                                        Width="100" TextAlignment="Center">
+                    <telerik:GridViewDataColumn.CellStyle>
+                        <Style TargetType="{x:Type telerik:GridViewCell}">
+                            <Setter Property="FontFamily"  Value="C39P72DlTt"/>
+                        </Style>
+                    </telerik:GridViewDataColumn.CellStyle>
+                </telerik:GridViewDataColumn>
+
+
+            </telerik:RadGridView.Columns>
+        </telerik:RadGridView>
+
+
+
+        <telerik:RadButton telerik:StyleManager.Theme="VisualStudio2013" Content="Clear List" HorizontalAlignment="Stretch" Height="28" Margin="5,5,5,20"  Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" Width="Auto" Click="RadButton_Click_1"/>
+        <telerik:RadButton telerik:StyleManager.Theme="VisualStudio2013" Content="Cancel" Grid.Column="3" HorizontalAlignment="Stretch" Height="28" Margin="5,5,5,20" Grid.Row="2" VerticalAlignment="Center" Width="Auto" Click="RadButton_Click_2"/>
+        <telerik:RadButton telerik:StyleManager.Theme="VisualStudio2013" Content="Create ID" Grid.Column="4" HorizontalAlignment="Stretch" Height="28" Margin="5,5,5,20" Grid.Row="2" VerticalAlignment="Center" Width="Auto" Click="RadButton_Click_3"/>
+
+
+    </Grid>
+</Window>

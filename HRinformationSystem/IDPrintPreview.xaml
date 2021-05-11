@@ -1,0 +1,18 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Viewer="clr-namespace:SAPBusinessObjects.WPF.Viewer;assembly=SAPBusinessObjects.WPF.Viewer"
+        xmlns:tr="http://schemas.telerik.com/wpf" x:Class="HRinformationSystem.IDPrintPreview" 
+        Title="IDPrintPreview"  Cursor="Hand" Height="720" Width="1200" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" >
+    <Grid>
+        <Viewer:CrystalReportsViewer Name="reportViewer"  HorizontalAlignment="Stretch" Margin="10,0" VerticalAlignment="Stretch" EnableToolTips="False" IsHitTestVisible="True" 
+                                     ShowCopyButton="False" ShowExportButton="False" ShowGoToPageButton="False" ShowLogo="False" ShowNextPageButton="True" ShowPrevPageButton="True" 
+                                     ShowPrintButton="True" ShowSearchTextButton="False" ShowStatusbar="True" ShowToggleSidePanelButton="False" ShowToolbar="True" ShowRefreshButton="True" 
+                                     ToggleSidePanel="None">
+            <Viewer:CrystalReportsViewer.ContextMenu>
+                <ContextMenu/>
+            </Viewer:CrystalReportsViewer.ContextMenu>
+        </Viewer:CrystalReportsViewer>
+       
+    </Grid>
+</Window>

@@ -1,0 +1,65 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:wizard="clr-namespace:Telerik.Windows.Controls.Wizard;assembly=Telerik.Windows.Controls.Navigation"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" x:Class="HRinformationSystem.EmployeeWorkExp"
+             mc:Ignorable="d"  Loaded="UserControl_Loaded"
+              Height="375" Width="800"  Background="#FFFBF9F9"  Cursor="Hand">
+    <Grid x:Name="LayoutRoot" Margin="2">
+
+
+        <TextBlock x:Name="EmpID" HorizontalAlignment="Left" Margin="27,16,0,0" TextWrapping="Wrap" Text="{Binding EmpID}" VerticalAlignment="Top" Visibility="Hidden" />
+
+
+
+        <telerik:RadGridView  Name="gridWorkExp" 
+                              HorizontalAlignment="Stretch" 
+                                                     VerticalAlignment="Stretch"
+                                                     Margin="5" 
+                                                     AutoGenerateColumns="False" 
+                                                     Grid.Row="1" 
+                                                     GroupRenderMode="Flat"  
+                                                     RowIndicatorVisibility="Collapsed" 
+                                                     ShowGroupPanel="False" 
+                                                     IsFilteringAllowed="False"
+                                                     NewRowPosition="Bottom" 
+                                                     CanUserInsertRows="True" 
+                                                     PreviewKeyDown="gridWorkExp_PreviewKeyDown"
+                                                     RowEditEnded="gridWorkExp_RowEditEnded"
+                                                     AddingNewDataItem="gridWorkExp_AddingNewDataItem">
+            <telerik:StyleManager.Theme>
+                <telerik:SummerTheme/>
+            </telerik:StyleManager.Theme>
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn Header="Company Name"
+										DataMemberBinding="{Binding CompanyName}"  
+                                        Width="200"/>
+                <telerik:GridViewDataColumn Header="Company Address"
+										DataMemberBinding="{Binding CompanyAddress}"  
+                                        Width="170*"/>
+                <telerik:GridViewDataColumn Header="Position"
+										DataMemberBinding="{Binding Position}"  
+                                        Width="140"/>
+                <telerik:GridViewDataColumn Header="Start Date" DataFormatString=" {0:dd/MMM/yyyy}" 
+										DataMemberBinding="{Binding DateFrom}" IsEnabled="False"  FilterMemberPath="DateNow.Value.Date"
+                                        Width="100*"/>
+                <telerik:GridViewDataColumn Header="End Date" DataFormatString=" {0:dd/MMM/yyyy}" 
+										DataMemberBinding="{Binding DateTo}" IsEnabled="False"  FilterMemberPath="DateNow.Value.Date"
+                                        Width="100*"/>
+
+            </telerik:RadGridView.Columns>
+        </telerik:RadGridView>
+
+
+
+
+
+
+
+
+
+    </Grid>
+</UserControl>
+
