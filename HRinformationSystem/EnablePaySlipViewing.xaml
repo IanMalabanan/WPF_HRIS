@@ -3,10 +3,70 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
         xmlns:local="clr-namespace:HRinformationSystem"
-        mc:Ignorable="d"
-        Title="" Height="247" Width="439">
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowState="Normal" ResizeMode="NoResize"
+        Title="" Height="250" Width="439">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Background="#4f565c" Grid.Column="2">
+            <TextBlock  VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"  FontWeight="Medium" Foreground="White"  
+                           Padding="5">ACTIVATE PAYSLIP VIEWING</TextBlock>
+        </Grid>
+
+
+        <Grid Grid.Row="1" Margin="2,2" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15"  
+                                   FontWeight="Medium" Foreground="Black"  Margin="10,0,0,0">
+                            Month:</TextBlock>
+
+            <telerik:RadComboBox x:Name="cboMonth"  VerticalAlignment="Stretch" Margin="2" Grid.Row="0" Grid.Column="1" FontSize="15" 
+                                 HorizontalAlignment="Stretch" IsEditable="False" EmptyText="--Select--" 
+                                 telerik:StyleManager.Theme="Fluent"  />
+
+
+
+            <TextBlock Grid.Column="0" Grid.Row="1"  VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15"  
+                                   FontWeight="Medium" Foreground="Black"  Padding="0,10,0,10" Margin="10,0,0,0">
+                            Year:</TextBlock>
+
+            <telerik:RadComboBox x:Name="cboYear"  VerticalAlignment="Stretch" Margin="2" Grid.Column="1" Grid.Row="1"
+                                  FontSize="15" HorizontalAlignment="Stretch" IsEditable="False" 
+                                  EmptyText="--Select--" telerik:StyleManager.Theme="Fluent" />
+
+
+            <TextBlock Grid.Column="0" Grid.Row="2"  VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15"  
+                                   FontWeight="Medium" Foreground="Black"  Padding="0,10,0,10" Margin="10,0,0,0">
+                                Cut Off:</TextBlock>
+
+            <telerik:RadComboBox x:Name="cboCutOff"  VerticalAlignment="Stretch" Margin="2" Grid.Column="1" Grid.Row="2"  FontSize="15"
+                                  HorizontalAlignment="Stretch" IsEditable="False"  
+                                  EmptyText="--Select--" telerik:StyleManager.Theme="Fluent" />
+
+            <Button Grid.Column="0" x:Name="btnActivate" Background="DarkCyan" HorizontalAlignment="Center" Width="120" Grid.Row="3"
+                     Grid.ColumnSpan="2" Margin="0,10,0,0">
+                <StackPanel>
+                    <TextBlock x:Name="lblShowBasic"  HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                               FontSize="15" Foreground="White">Activate</TextBlock>
+                </StackPanel>
+            </Button>
+        </Grid>
+
 
     </Grid>
 </Window>
