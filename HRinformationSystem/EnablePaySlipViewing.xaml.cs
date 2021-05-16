@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -22,11 +23,55 @@ namespace HRinformationSystem
     {
         public static string _monthYear, gross, net, deduct, basic;
 
+        HRISEntities dbcontext = new HRISEntities();
+
         public EnablePaySlipViewing()
         {
             InitializeComponent();
 
             LoadFields();
+        }
+
+        private void BtnActivate_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Do you want to save the record?",
+                    "Confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                ActivatePayslipViewing();
+
+                //int i = Convert.ToInt32(cboMonth.SelectedIndex + 1);
+
+                //switch (i)
+                //{
+                //    case int n when (n >= 1 && n <= 9):
+                //       MessageBox.Show("1-9");
+                //        break;
+
+                //    default:
+                //        MessageBox.Show("10-12") ;
+                //        break;
+                //}
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void ActivatePayslipViewing()
+        {
+            string query = "update [dbo].[ViewPayslipLockCutOff] set [MonthYear]=@MonthYear, [CutOff]=@SalType";
+
+            SqlCommand cmd = new SqlCommand(query);
+
+            cmd.Parameters.AddWithValue("@MonthYear", ConcatenanteMonthYear());
+
+            cmd.Parameters.AddWithValue("@SalType", Convert.ToInt16(cboCutOff.SelectedIndex + 1));
+
+            SqlHelper.ExecuteNonQuery("Data Source=" + dbcontext.Database.Connection.DataSource
+                + ";Initial Catalog=SKPI_PayrollDB;User ID=sa; Password=P@55w0rd", cmd);
+
+            MessageBox.Show("Successfully Updated");
         }
 
         private void LoadFields()

@@ -151,6 +151,5 @@ C:\Users\ian.malabanan\Desktop\ISOAP\HRinformationSystem\HRinformationSystem\bin
 C:\Users\ian.malabanan\Desktop\ISOAP\HRinformationSystem\HRinformationSystem\bin\Release\NewIDCreation.rpt
 C:\Users\ian.malabanan\Desktop\ISOAP\HRinformationSystem\HRinformationSystem\bin\Release\NewCOE.cs
 C:\Users\ian.malabanan\Desktop\ISOAP\HRinformationSystem\HRinformationSystem\bin\Release\NewIDCreation.cs
-C:\Users\ian.malabanan\Desktop\ISOAP\HRinformationSystem\HRinformationSystem\obj\Release\HRinformationSystem.csprojAssemblyReference.cache
 C:\Users\ian.malabanan\Desktop\ISOAP\HRinformationSystem\HRinformationSystem\obj\Release\EnablePaySlipViewing.g.cs
 C:\Users\ian.malabanan\Desktop\ISOAP\HRinformationSystem\HRinformationSystem\obj\Release\EnablePaySlipViewing.baml
