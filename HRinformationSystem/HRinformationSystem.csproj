@@ -773,6 +773,7 @@
     <Resource Include="Images\refreshnew.png" />
     <Resource Include="Images\document.png" />
     <Resource Include="Images\refresh_black.png" />
+    <Resource Include="Images\payslip.png" />
     <Content Include="mycss.css" />
   </ItemGroup>
   <ItemGroup>

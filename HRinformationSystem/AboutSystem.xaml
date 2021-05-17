@@ -28,8 +28,8 @@
         <Separator HorizontalAlignment="Stretch" Height="10" Margin="5,1,5,45" VerticalAlignment="Center" BorderBrush="#FF4D4B4B" Grid.Row="3" RenderTransformOrigin="0.526,-1.004"/>
 
         <telerik:RadButton Content="OK" telerik:StyleManager.Theme="VisualStudio2013" HorizontalAlignment="Left" Height="22" Margin="376,27,0,0" Grid.Row="3" VerticalAlignment="Top" Width="69" Click="RadButton_Click"/>
-        <TextBlock HorizontalAlignment="Left" Margin="19,10,0,0" Grid.Row="3" TextWrapping="Wrap" Text="Copyright © 2019" VerticalAlignment="Top" Height="16" Width="114" Foreground="#FF1656DE"/>
-        <TextBlock HorizontalAlignment="Left" Margin="19,26,0,0" Grid.Row="3" TextWrapping="Wrap" Text="IT Officer: Hanzel Mendania" VerticalAlignment="Top" Width="175" Height="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="19,10,0,0" Grid.Row="3" TextWrapping="Wrap" Text="Copyright © 2021" VerticalAlignment="Top" Height="16" Width="114" Foreground="#FF1656DE"/>
+        <TextBlock HorizontalAlignment="Left" Margin="19,26,0,0" Grid.Row="3" TextWrapping="Wrap" Text="IT Officer: Ian Lemuel Malabanan / Hanzel Mendania" VerticalAlignment="Top" Width="175" Height="16"/>
         <TextBlock HorizontalAlignment="Left" Margin="208,6,0,0" Grid.Row="2" TextWrapping="Wrap" Text="This Product is licensed to:" VerticalAlignment="Top" FontStyle="Italic" FontSize="13" Height="17" Width="173"/>
         <Image HorizontalAlignment="Left" Height="67" Margin="230,29,0,0" Grid.Row="2" VerticalAlignment="Top" Width="76" RenderTransformOrigin="0.178,0.139" Source="Images/skpilogopic.png"/>
         <Image HorizontalAlignment="Left" Height="98" Margin="19,3,0,0" Grid.Row="2" VerticalAlignment="Top" Width="171" RenderTransformOrigin="0.178,0.139" Source="Images/loginbg.jpg"/>

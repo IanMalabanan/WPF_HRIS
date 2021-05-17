@@ -144,6 +144,13 @@ namespace HRinformationSystem
             this.WindowState = WindowState.Minimized;
         }
 
+        private void Activatepayslipbox_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            EnablePaySlipViewing frm = new EnablePaySlipViewing();
+
+            frm.ShowDialog();
+        }
+
         //private void Tile_MouseDown_8(object sender, MouseButtonEventArgs e)
         //{
         //    EmployeeOutgoing EmployeeOutgoing = new EmployeeOutgoing();

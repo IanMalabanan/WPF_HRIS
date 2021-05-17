@@ -93,7 +93,6 @@
                                 </Grid>
                             </telerik:Tile>
 
-
                             <telerik:Tile MouseDown="Tile_MouseDown_4"
                                 TileType="Single" >
 
@@ -101,6 +100,26 @@
                                     <Image Source="Images/bus.jpg"  />
                                     <TextBlock Text="Shuttle" Style="{StaticResource TileLabelStyle}"  Margin="10,0,67,10" Foreground="#FF3367B2" FontWeight="Bold">
                                     </TextBlock>
+                                </Grid>
+                            </telerik:Tile>
+
+                            <telerik:Tile MouseDown="Activatepayslipbox_MouseDown"  Name="activatepayslipbox" 
+                                TileType="Double">
+                                
+                                <telerik:Tile.Background>
+                                    
+                                    <SolidColorBrush Color="WhiteSmoke" />
+                                    
+                                </telerik:Tile.Background>
+                                
+                                <Grid >
+                                    <Image Source="Images/payslip.png" />
+                                    <TextBlock Text="PaySlip Viewing Control"  Style="{StaticResource TileLabelStyle}" Foreground="#FF545559" TextWrapping="Wrap" FontWeight="Bold">
+                                        <TextBlock.Background>
+                                            <SolidColorBrush Color="AliceBlue" Opacity="0.8"/>
+                                        </TextBlock.Background>
+                                    </TextBlock>
+
                                 </Grid>
                             </telerik:Tile>
 

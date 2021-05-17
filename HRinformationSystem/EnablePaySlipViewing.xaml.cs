@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Globalization;
 using System.Linq;
@@ -13,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Telerik.Windows.Controls;
 
 namespace HRinformationSystem
 {
@@ -29,6 +31,11 @@ namespace HRinformationSystem
         {
             InitializeComponent();
 
+            
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
             LoadFields();
         }
 
@@ -92,10 +99,23 @@ namespace HRinformationSystem
 
             for (int i = DateTime.Now.Year; i >= DateTime.Now.Year - 4; i--)
             {
-                cboYear.Items.Add(i);
+                cboYear.Items.Add(i.ToString());
             }
 
-            cboYear.SelectedItem = Convert.ToString(DateTime.Today.Year);
+            //cboYear.SelectedItem = Convert.ToString(DateTime.Today.Year);
+
+            SqlCommand cmd = new SqlCommand("select * from [dbo].[ViewPayslipLockCutOff]");
+
+            foreach (DataRow dr in SqlHelper.ExecuteReader("Data Source=" + dbcontext.Database.Connection.DataSource
+                + ";Initial Catalog=SKPI_PayrollDB;User ID=sa; Password=P@55w0rd", cmd).Rows)
+            {              
+                cboMonth.SelectedIndex = Convert.ToInt16(Convert.ToInt32(dr["MonthYear"].ToString().Substring(0, 2)) - 1);
+
+                cboYear.Text = Convert.ToString(dr["MonthYear"].ToString().Substring(2, 4));
+
+                cboCutOff.SelectedIndex = Convert.ToInt16(Convert.ToInt32(dr["CutOff"]) - 1);
+            }
+
 
         }
 

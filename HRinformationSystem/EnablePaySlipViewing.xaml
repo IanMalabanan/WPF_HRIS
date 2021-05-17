@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
-        xmlns:local="clr-namespace:HRinformationSystem"
+        xmlns:local="clr-namespace:HRinformationSystem" Loaded="Window_Loaded"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowState="Normal" ResizeMode="NoResize"
         Title="" Height="250" Width="439">
     <Grid>
@@ -14,7 +14,7 @@
         </Grid.RowDefinitions>
         <Grid Background="#4f565c" Grid.Column="2">
             <TextBlock  VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"  FontWeight="Medium" Foreground="White"  
-                           Padding="5">ACTIVATE PAYSLIP VIEWING</TextBlock>
+                           Padding="5">DISABLE PAYSLIP VIEWING</TextBlock>
         </Grid>
 
 
@@ -39,8 +39,6 @@
                                  HorizontalAlignment="Stretch" IsEditable="False" EmptyText="--Select--" 
                                  telerik:StyleManager.Theme="Fluent"  />
 
-
-
             <TextBlock Grid.Column="0" Grid.Row="1"  VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15"  
                                    FontWeight="Medium" Foreground="Black"  Padding="0,10,0,10" Margin="10,0,0,0">
                             Year:</TextBlock>
@@ -58,11 +56,11 @@
                                   HorizontalAlignment="Stretch" IsEditable="False"  
                                   EmptyText="--Select--" telerik:StyleManager.Theme="Fluent" />
 
-            <Button Grid.Column="0" x:Name="btnActivate" Background="DarkCyan" HorizontalAlignment="Center" Width="120" Grid.Row="3"
+            <Button Grid.Column="1" x:Name="btnActivate" Background="DarkCyan" HorizontalAlignment="Stretch"  Grid.Row="3"
                      Grid.ColumnSpan="2" Margin="0,10,0,0" Cursor="Hand" Click="BtnActivate_Click">
                 <StackPanel>
-                    <TextBlock x:Name="lblShowBasic"  HorizontalAlignment="Stretch" VerticalAlignment="Center"
-                               FontSize="15" Foreground="White">Activate</TextBlock>
+                    <TextBlock x:Name="lblShowBasic"  HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="2"
+                               FontSize="15" Foreground="White">Disable Viewing Starting This Parameters?</TextBlock>
                 </StackPanel>
             </Button>
         </Grid>
