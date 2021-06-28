@@ -1,0 +1,34 @@
+﻿<Window x:Class="HRinformationSystem.ReAssignApprovers"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        xmlns:local="clr-namespace:HRinformationSystem"
+        mc:Ignorable="d"
+        Title="ReAssignApprovers" Height="450" Width="800">
+
+
+    <Grid>
+
+        <telerik:RadTabControl ItemsSource="{Binding Models}" AllowDragReorder="True" x:Name="tabControl" DisplayMemberPath="Header"
+                               ScrollMode="Item"
+                               telerik:AnimationManager.IsAnimationEnabled="True" 
+                               ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                               CloseTabsOnMouseMiddleButtonDown="True"
+                               DropDownDisplayMode="Visible">
+            
+            <telerik:RadTabControl.AdditionalContent>
+                <telerik:RadButton x:Name="PART_AddItemsButton" Margin="8 4 8 4" Height="20" Width="20"  >
+                    <TextBlock Text="1" FontSize="14"  VerticalAlignment="Top" Margin="0,100,0,0" HorizontalAlignment="Center"/>
+                </telerik:RadButton>
+            </telerik:RadTabControl.AdditionalContent>
+            <telerik:RadTabControl.ContentTemplate>
+                <DataTemplate>
+                    <TextBlock Text="2" FontSize="14"  VerticalAlignment="Top" Margin="0,100,0,0" HorizontalAlignment="Center"/>
+                </DataTemplate>
+            </telerik:RadTabControl.ContentTemplate>
+        </telerik:RadTabControl>
+
+    </Grid>
+</Window>

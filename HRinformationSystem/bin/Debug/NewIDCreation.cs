@@ -16,14 +16,14 @@ namespace HRinformationSystem {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class rptCOE : ReportClass {
+    public class NewIDCreation : ReportClass {
         
-        public rptCOE() {
+        public NewIDCreation() {
         }
         
         public override string ResourceName {
             get {
-                return "rptCOE.rpt";
+                return "NewIDCreation.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace HRinformationSystem {
         
         public override string FullResourceName {
             get {
-                return "HRinformationSystem.rptCOE.rpt";
+                return "HRinformationSystem.NewIDCreation.rpt";
             }
             set {
                 // Do nothing
@@ -50,7 +50,7 @@ namespace HRinformationSystem {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section1 {
+        public CrystalDecisions.CrystalReports.Engine.Section ReportHeaderSection1 {
             get {
                 return this.ReportDefinition.Sections[0];
             }
@@ -58,7 +58,7 @@ namespace HRinformationSystem {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section2 {
+        public CrystalDecisions.CrystalReports.Engine.Section PageHeaderSection1 {
             get {
                 return this.ReportDefinition.Sections[1];
             }
@@ -66,7 +66,7 @@ namespace HRinformationSystem {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
+        public CrystalDecisions.CrystalReports.Engine.Section DetailSection1 {
             get {
                 return this.ReportDefinition.Sections[2];
             }
@@ -74,7 +74,7 @@ namespace HRinformationSystem {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
+        public CrystalDecisions.CrystalReports.Engine.Section ReportFooterSection1 {
             get {
                 return this.ReportDefinition.Sections[3];
             }
@@ -82,25 +82,17 @@ namespace HRinformationSystem {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
+        public CrystalDecisions.CrystalReports.Engine.Section PageFooterSection1 {
             get {
                 return this.ReportDefinition.Sections[4];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_COE_Body {
-            get {
-                return this.DataDefinition.ParameterFields[0];
             }
         }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedrptCOE : Component, ICachedReport {
+    public class CachedNewIDCreation : Component, ICachedReport {
         
-        public CachedrptCOE() {
+        public CachedNewIDCreation() {
         }
         
         [Browsable(false)]
@@ -137,7 +129,7 @@ namespace HRinformationSystem {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            rptCOE rpt = new rptCOE();
+            NewIDCreation rpt = new NewIDCreation();
             rpt.Site = this.Site;
             return rpt;
         }

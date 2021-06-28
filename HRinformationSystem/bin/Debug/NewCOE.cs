@@ -16,14 +16,14 @@ namespace HRinformationSystem {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class HRiSID : ReportClass {
+    public class NewCOE : ReportClass {
         
-        public HRiSID() {
+        public NewCOE() {
         }
         
         public override string ResourceName {
             get {
-                return "HRiSID.rpt";
+                return "NewCOE.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace HRinformationSystem {
         
         public override string FullResourceName {
             get {
-                return "HRinformationSystem.HRiSID.rpt";
+                return "HRinformationSystem.NewCOE.rpt";
             }
             set {
                 // Do nothing
@@ -50,7 +50,7 @@ namespace HRinformationSystem {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section ReportHeaderSection1 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section1 {
             get {
                 return this.ReportDefinition.Sections[0];
             }
@@ -58,7 +58,7 @@ namespace HRinformationSystem {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section PageHeaderSection1 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section2 {
             get {
                 return this.ReportDefinition.Sections[1];
             }
@@ -66,7 +66,7 @@ namespace HRinformationSystem {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section DetailSection1 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
             get {
                 return this.ReportDefinition.Sections[2];
             }
@@ -74,7 +74,7 @@ namespace HRinformationSystem {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section ReportFooterSection1 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
             get {
                 return this.ReportDefinition.Sections[3];
             }
@@ -82,17 +82,25 @@ namespace HRinformationSystem {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section PageFooterSection1 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
             get {
                 return this.ReportDefinition.Sections[4];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.Shared.IParameterField Parameter_COE_Body {
+            get {
+                return this.DataDefinition.ParameterFields[0];
             }
         }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedHRiSID : Component, ICachedReport {
+    public class CachedNewCOE : Component, ICachedReport {
         
-        public CachedHRiSID() {
+        public CachedNewCOE() {
         }
         
         [Browsable(false)]
@@ -129,7 +137,7 @@ namespace HRinformationSystem {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            HRiSID rpt = new HRiSID();
+            NewCOE rpt = new NewCOE();
             rpt.Site = this.Site;
             return rpt;
         }

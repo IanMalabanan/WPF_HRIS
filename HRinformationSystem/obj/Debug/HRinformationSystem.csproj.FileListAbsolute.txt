@@ -1,15 +1,9 @@
-C:\Users\ian.malabanan\Desktop\ISOAP\HRinformationSystem\HRinformationSystem\bin\Debug\HRiSID.rpt
-C:\Users\ian.malabanan\Desktop\ISOAP\HRinformationSystem\HRinformationSystem\bin\Debug\rptCOE.rpt
-C:\Users\ian.malabanan\Desktop\ISOAP\HRinformationSystem\HRinformationSystem\bin\Debug\HRiSID.cs
-C:\Users\ian.malabanan\Desktop\ISOAP\HRinformationSystem\HRinformationSystem\bin\Debug\rptCOE.cs
 C:\Users\ian.malabanan\Desktop\ISOAP\HRinformationSystem\HRinformationSystem\bin\Debug\HRinformationSystem.exe.config
 C:\Users\ian.malabanan\Desktop\ISOAP\HRinformationSystem\HRinformationSystem\bin\Debug\HRinformationSystem.exe
 C:\Users\ian.malabanan\Desktop\ISOAP\HRinformationSystem\HRinformationSystem\bin\Debug\HRinformationSystem.pdb
-C:\Users\ian.malabanan\Desktop\ISOAP\HRinformationSystem\HRinformationSystem\bin\Debug\CrystalDecisions.CrystalReports.Design.dll
 C:\Users\ian.malabanan\Desktop\ISOAP\HRinformationSystem\HRinformationSystem\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
 C:\Users\ian.malabanan\Desktop\ISOAP\HRinformationSystem\HRinformationSystem\bin\Debug\CrystalDecisions.ReportSource.dll
 C:\Users\ian.malabanan\Desktop\ISOAP\HRinformationSystem\HRinformationSystem\bin\Debug\CrystalDecisions.Shared.dll
-C:\Users\ian.malabanan\Desktop\ISOAP\HRinformationSystem\HRinformationSystem\bin\Debug\CrystalDecisions.Windows.Forms.dll
 C:\Users\ian.malabanan\Desktop\ISOAP\HRinformationSystem\HRinformationSystem\bin\Debug\EntityFramework.dll
 C:\Users\ian.malabanan\Desktop\ISOAP\HRinformationSystem\HRinformationSystem\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\ian.malabanan\Desktop\ISOAP\HRinformationSystem\HRinformationSystem\bin\Debug\SAPBusinessObjects.WPF.Viewer.dll
@@ -40,7 +34,6 @@ C:\Users\ian.malabanan\Desktop\ISOAP\HRinformationSystem\HRinformationSystem\bin
 C:\Users\ian.malabanan\Desktop\ISOAP\HRinformationSystem\HRinformationSystem\bin\Debug\Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.dll
 C:\Users\ian.malabanan\Desktop\ISOAP\HRinformationSystem\HRinformationSystem\bin\Debug\Telerik.Windows.Documents.Spreadsheet.FormatProviders.Pdf.dll
 C:\Users\ian.malabanan\Desktop\ISOAP\HRinformationSystem\HRinformationSystem\bin\Debug\Telerik.Windows.Zip.dll
-C:\Users\ian.malabanan\Desktop\ISOAP\HRinformationSystem\HRinformationSystem\bin\Debug\CrystalDecisions.Web.dll
 C:\Users\ian.malabanan\Desktop\ISOAP\HRinformationSystem\HRinformationSystem\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
 C:\Users\ian.malabanan\Desktop\ISOAP\HRinformationSystem\HRinformationSystem\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
 C:\Users\ian.malabanan\Desktop\ISOAP\HRinformationSystem\HRinformationSystem\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
@@ -154,3 +147,11 @@ C:\Users\ian.malabanan\Desktop\ISOAP\HRinformationSystem\HRinformationSystem\obj
 C:\Users\ian.malabanan\Desktop\ISOAP\HRinformationSystem\HRinformationSystem\obj\Debug\HRinformationSystem.csproj.CopyComplete
 C:\Users\ian.malabanan\Desktop\ISOAP\HRinformationSystem\HRinformationSystem\obj\Debug\HRinformationSystem.exe
 C:\Users\ian.malabanan\Desktop\ISOAP\HRinformationSystem\HRinformationSystem\obj\Debug\HRinformationSystem.pdb
+C:\Users\ian.malabanan\Desktop\ISOAP\HRinformationSystem\HRinformationSystem\bin\Debug\NewCOE.rpt
+C:\Users\ian.malabanan\Desktop\ISOAP\HRinformationSystem\HRinformationSystem\bin\Debug\NewIDCreation.rpt
+C:\Users\ian.malabanan\Desktop\ISOAP\HRinformationSystem\HRinformationSystem\bin\Debug\NewCOE.cs
+C:\Users\ian.malabanan\Desktop\ISOAP\HRinformationSystem\HRinformationSystem\bin\Debug\NewIDCreation.cs
+C:\Users\ian.malabanan\Desktop\ISOAP\HRinformationSystem\HRinformationSystem\obj\Debug\EnablePaySlipViewing.g.cs
+C:\Users\ian.malabanan\Desktop\ISOAP\HRinformationSystem\HRinformationSystem\obj\Debug\ReAssignApprovers.g.cs
+C:\Users\ian.malabanan\Desktop\ISOAP\HRinformationSystem\HRinformationSystem\obj\Debug\EnablePaySlipViewing.baml
+C:\Users\ian.malabanan\Desktop\ISOAP\HRinformationSystem\HRinformationSystem\obj\Debug\ReAssignApprovers.baml

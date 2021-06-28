@@ -392,6 +392,12 @@ namespace HRinformationSystem
 
                 r.ProximityCardID = string.IsNullOrEmpty(ProximityCardID.Text) ? DBNull.Value.ToString() :ProximityCardID.Text;
 
+                if (HireDate.SelectedDate.HasValue)
+                {
+                    r.HireDate = HireDate.SelectedDate.Value;//Convert.ToDateTime(EndDate.DateTimeText);
+                }
+                else { r.HireDate = null; }
+
                 if (BirthDate.SelectedDate.HasValue)
                 {
                     r.BirthDate = BirthDate.SelectedDate.Value;//Convert.ToDateTime(EndDate.DateTimeText);

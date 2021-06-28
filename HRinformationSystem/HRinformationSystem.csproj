@@ -278,6 +278,9 @@
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="ReAssignApprovers.xaml.cs">
+      <DependentUpon>ReAssignApprovers.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Sample.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -590,6 +593,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Position.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ReAssignApprovers.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

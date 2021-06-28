@@ -8,13 +8,13 @@ C:\Users\ian.malabanan\Desktop\ISOAP\HRinformationSystem\HRinformationSystem\obj
 HRinformationSystem
 none
 false
-DEBUG;TRACE
+TRACE
 C:\Users\ian.malabanan\Desktop\ISOAP\HRinformationSystem\HRinformationSystem\App.xaml
-251433337230
+27388253212
 11714370991
-70-1995671979
-58-1762900739
-AboutSystem.xaml;AddNewEmployee.xaml;Archive.xaml;COE_Creation.xaml;COE_ViewAndPrint.xaml;CreateEmpoyeeID.xaml;Department.xaml;EmployeeBdayCelebrant.xaml;EmployeeDependents.xaml;EmployeeEducationalBG.xaml;EmployeeList.xaml;EmployeeMonthlyEvaluation.xaml;EmployeePersonalinfo.xaml;EmployeePersonalinfoArchive.xaml;EmployeeReClass.xaml;EmployeeTrainings.xaml;EmployeeWorkExp.xaml;HRiSUsers.xaml;IDPrintPreview.xaml;Install_Updates.xaml;MainForm.xaml;Position.xaml;Section.xaml;ShuttleDestination.xaml;UserLogin.xaml;
+93-638275933
+55-107740944
+AboutSystem.xaml;AddNewEmployee.xaml;Archive.xaml;COE_Creation.xaml;COE_ViewAndPrint.xaml;CreateEmpoyeeID.xaml;Department.xaml;EmployeeBdayCelebrant.xaml;EmployeeDependents.xaml;EmployeeEducationalBG.xaml;EmployeeList.xaml;EmployeeMonthlyEvaluation.xaml;EmployeePersonalinfo.xaml;EmployeePersonalinfoArchive.xaml;EmployeeReClass.xaml;EmployeeTrainings.xaml;EmployeeWorkExp.xaml;EnablePaySlipViewing.xaml;HRiSUsers.xaml;IDPrintPreview.xaml;Install_Updates.xaml;MainForm.xaml;Position.xaml;ReAssignApprovers.xaml;Section.xaml;ShuttleDestination.xaml;UserLogin.xaml;
 
 False
 
